@@ -3,8 +3,8 @@
   }
   
   .letter-s td {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     /* border: 1px solid black; */
   }
   
@@ -15,10 +15,6 @@
   
   .top {
     border-bottom: none;
-  }
-  
-  .bottom {
-    border-top: none;
   }
   
   .middle {

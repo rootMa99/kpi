@@ -1,4 +1,5 @@
 import './App.css';
+import Dtable from './component/Dtable';
 import Qletter from './component/Qletter';
 import Stable from './component/Stable';
 import Ttable from './component/Ttable';
@@ -9,6 +10,7 @@ function App() {
         <Qletter />
         <Stable />
         <Ttable />
+        <Dtable />
     </div>
   );
 }
