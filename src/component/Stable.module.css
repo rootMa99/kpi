@@ -1,0 +1,27 @@
+.letter-s {
+    border-collapse: collapse;
+  }
+  
+  .letter-s td {
+    width: 40px;
+    height: 40px;
+    /* border: 1px solid black; */
+  }
+  
+  .corner {
+    background-color: rgba(0, 0, 0, 0.082);
+    border: 1px solid black;
+  }
+  
+  .top {
+    border-bottom: none;
+  }
+  
+  .bottom {
+    border-top: none;
+  }
+  
+  .middle {
+    background-color: black;
+  }
+  
