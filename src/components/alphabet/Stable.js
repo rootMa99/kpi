@@ -4,43 +4,43 @@ const Stable = (p) => {
   return (
     <table className={c["letter-s"]}>
       <tr>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
         <td className={c.top}></td>
@@ -49,34 +49,34 @@ const Stable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
       </tr>
     </table>
   );

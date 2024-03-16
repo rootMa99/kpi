@@ -3,14 +3,17 @@
   }
   
   .letter-s td {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     /* border: 1px solid black; */
+  }
+  .letter-s td span{
+    color: aliceblue;
   }
   
   .corner {
     background-color: rgba(0, 0, 0, 0.082);
-    border: 1px solid black;
+    border: 1px solid  #F84018;
   }
   
   .top {

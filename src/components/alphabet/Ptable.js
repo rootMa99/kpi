@@ -5,57 +5,47 @@ const Ptable = (p) => {
     <table className={c["letter-s"]}>
       <tr>
         <td className={c.corner} colspan="2"></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
       </tr>
       <tr>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
       </tr>
       <tr>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.top}></td>
-      </tr>
-      <tr>
-        <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
-        <td className={c.top}></td>
-        <td className={c.top}></td>
-        <td className={c.top}></td>
-        <td className={c.top}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
       </tr>
       <tr>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
@@ -64,8 +54,8 @@ const Ptable = (p) => {
       </tr>
       <tr>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
@@ -74,8 +64,8 @@ const Ptable = (p) => {
       </tr>
       <tr>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
@@ -84,8 +74,18 @@ const Ptable = (p) => {
       </tr>
       <tr>
         <td className={c.top}></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.top}></td>
+        <td className={c.top}></td>
+        <td className={c.top}></td>
+        <td className={c.top}></td>
+        <td className={c.top}></td>
+      </tr>
+      <tr>
+        <td className={c.top}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
@@ -94,8 +94,8 @@ const Ptable = (p) => {
       </tr>
       <tr>
         <td className={c.corner} colspan="2"></td>
-        <td className={c.corner}></td>
-        <td className={c.corner}></td>
+        <td className={c.corner}><span></span></td>
+        <td className={c.corner}><span></span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>

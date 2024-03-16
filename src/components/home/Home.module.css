@@ -1,0 +1,54 @@
+.head {
+  width: 100;
+  margin: auto;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.wrapAl {
+  padding: 1rem;
+  /* border: 1px solid  white; */
+  position: relative;
+  overflow: hidden;
+  width: 14%;
+  cursor: pointer;
+}
+.wrapAl:hover {
+    transform: scale(1.1);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: absolute;
+  left: -0.5rem;
+  top: 1rem;
+  width: 100%;
+}
+.title h3 {
+  color: aliceblue;
+  margin: 0;
+  text-transform: uppercase;
+}
+.alphabetH {
+  margin-top: 2rem;
+}
+.line {
+  width: 30%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.line::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border: 3px solid #f84018;
+  border-radius: 50%;
+  position: absolute;
+  right: -20px;
+  top: -7px;
+}
