@@ -4,11 +4,11 @@ const Ptable = (p) => {
   return (
     <table className={c["letter-s"]}>
       <tr>
-        <td className={c.corner} colspan="2"><span>1</span></td>
-        <td className={c.corner}><span>2</span></td>
-        <td className={c.corner}><span>3</span></td>
-        <td className={c.corner}><span>4</span></td>
-        <td className={c.corner}><span>5</span></td>
+        <td className={c.corner} colspan="2" style={{"backgroundColor":"blue"}}><span>1</span></td>
+        <td className={c.corner} style={{"backgroundColor":"green"}}><span>2</span></td>
+        <td className={c.corner} style={{"backgroundColor":"red"}}><span>3</span></td>
+        <td className={c.corner} style={{"backgroundColor":"green"}}><span>4</span></td>
+        <td className={c.corner} style={{"backgroundColor":"red"}}><span>5</span></td>
         <td className={c.corner}><span>6</span></td>
         <td className={c.top}></td>
       </tr>

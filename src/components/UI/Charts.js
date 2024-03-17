@@ -13,7 +13,7 @@ import {
 
 const Charts = (p) => {
   const data = {
-    labels: [
+    labels: p.title==="monthly"? [
       "JAN",
       "FEB",
       "MAR",
@@ -26,7 +26,7 @@ const Charts = (p) => {
       "OCT",
       "NOV",
       "DEC",
-    ],
+    ]:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
     datasets: [
       {
         type: "line",
@@ -138,6 +138,11 @@ const Charts = (p) => {
   );
   return (
     <div className={c.chartHolder}>
+    <div className={c.title}>
+    <span></span>
+    <h3> {p.title} </h3>
+    <span></span>
+    </div>
       <Line data={data} options={options} />
     </div>
   );

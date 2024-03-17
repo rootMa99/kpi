@@ -4,15 +4,15 @@ const Dtable = (p) => {
   return (
     <table className={c["letter-s"]}>
       <tr>
-        <td className={c.corner}>
+        <td className={c.corner} style={{"backgroundColor":"blue"}}>
           <span>1</span>
         </td>
-        <td className={c.corner}>
+        <td className={c.corner}style={{"backgroundColor":"blue"}}>
           <span>2</span>
         </td>
-        <td className={c.corner}><span>3</span></td>
-        <td className={c.corner}><span>4</span></td>
-        <td className={c.corner}><span>5</span></td>
+        <td className={c.corner} style={{"backgroundColor":"red"}}><span>3</span></td>
+        <td className={c.corner} style={{"backgroundColor":"blue"}}><span>4</span></td>
+        <td className={c.corner} style={{"backgroundColor":"green"}}><span>5</span></td>
         <td className={c.corner}><span>6</span></td>
         <td className={c.corner}><span>7</span></td>
         <td className={c.top}></td>

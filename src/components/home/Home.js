@@ -15,9 +15,9 @@ const Home = (p) => {
   const scrollRef = useRef(null);
   const clickHandler = (e, t) => {
     setShow({ show: false, title: "" });
-    style={"minHeight":"125rem"}
+    style = { minHeight: "125rem" };
     setTimeout(() => setShow({ show: true, title: t }), 5);
-    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -90,7 +90,9 @@ const Home = (p) => {
           </div>
         </div>
       </div>
-      <div ref={scrollRef} style={{"minHeight": "30rem"}}>{show.show && <Details title={show.title} />}</div>
+      <div ref={scrollRef} style={{ minHeight: "30rem" }}>
+        {show.show && <Details title={show.title} />}
+      </div>
     </React.Fragment>
   );
 };
