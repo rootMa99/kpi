@@ -4,11 +4,11 @@ const Ktable = (p) => {
   return (
     <table className={c["letter-s"]}>
       <tr>
-        <td className={c.corner} colspan="4" style={{"backgroundColor":"blue"}}><span>1</span></td>
+        <td className={c.corner} colSpan="4" style={{"backgroundColor":"blue"}}><span>1</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colspan="2" style={{"backgroundColor":"green"}}><span>2</span></td>
+        <td className={c.corner} colSpan="2" style={{"backgroundColor":"green"}}><span>2</span></td>
         <td className={c.top}></td>
       </tr>
       <tr>
@@ -18,7 +18,7 @@ const Ktable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colspan="2" style={{"backgroundColor":"red"}}><span>5</span></td>
+        <td className={c.corner} colSpan="2" style={{"backgroundColor":"red"}}><span>5</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
       </tr>
@@ -28,7 +28,7 @@ const Ktable = (p) => {
         <td className={c.corner}><span>7</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colspan="2"><span>8</span></td>
+        <td className={c.corner} colSpan="2"><span>8</span></td>
         <td className={c.top}></td>
       </tr>
       <tr>
@@ -36,7 +36,7 @@ const Ktable = (p) => {
         <td className={c.corner}><span>9</span></td>
         <td className={c.corner}><span>10</span></td>
         <td className={c.top}></td>
-        <td className={c.corner} colspan="2"><span>11</span></td>
+        <td className={c.corner} colSpan="2"><span>11</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
       </tr>
@@ -75,7 +75,7 @@ const Ktable = (p) => {
         <td className={c.corner}><span>25</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colspan="2"><span>26</span></td>
+        <td className={c.corner} colSpan="2"><span>26</span></td>
         <td className={c.top}></td>
       </tr>
       <tr>
@@ -85,14 +85,14 @@ const Ktable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colspan="2"><span>29</span></td>
+        <td className={c.corner} colSpan="2"><span>29</span></td>
       </tr>
       <tr>
-      <td className={c.corner} colspan="4"><span>30</span></td>
+      <td className={c.corner} colSpan="4"><span>30</span></td>
       <td className={c.top}></td>
       <td className={c.top}></td>
       <td className={c.top}></td>
-      <td className={c.corner} colspan="2"><span>31</span></td>
+      <td className={c.corner} colSpan="2"><span>31</span></td>
       <td className={c.top}></td>
       </tr>
     </table>

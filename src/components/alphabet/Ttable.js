@@ -44,7 +44,7 @@ const Ttable = (p) => {
         <td className={c.top}></td>
       </tr>
       <tr>
-        <td className={c.corner} rowspan="2"><span>9</span></td>
+        <td className={c.corner} rowSpan="2"><span>9</span></td>
         <td className={c.corner}><span>10</span></td>
         <td className={c.corner}><span>11</span></td>
         <td className={c.corner}><span>12</span></td>

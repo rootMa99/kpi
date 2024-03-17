@@ -66,6 +66,12 @@
   font-size: 16px;
   text-align: center;
   cursor: pointer;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  background-color: #CF3335;
+}
+.custom-datepicker:focus{
+  outline: none;
 }
 .datePicker label{
   color: #f84018;
