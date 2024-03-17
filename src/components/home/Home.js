@@ -10,10 +10,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import c from "./Home.module.css";
 import React, { useRef, useState } from "react";
+import { getMonthAndYear } from "../functions/utils";
 
 const Home = (p) => {
   const [show, setShow] = useState({ show: false, title: "" });
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(getMonthAndYear());
   const scrollRef = useRef(null);
 
   const handleDateChange = (date) => {
@@ -34,6 +35,7 @@ const Home = (p) => {
           dateFormat="MMMM yyyy"
           showMonthYearPicker
           showFullMonthYearPicker
+          className={c["custom-datepicker"]}
         />
       </div>
       <div className={c.head}>
