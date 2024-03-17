@@ -73,6 +73,10 @@
 .custom-datepicker:focus{
   outline: none;
 }
+.custom-datepicker:hover{
+  outline: none;
+  transform: scale(1.1);
+}
 .datePicker label{
   color: #f84018;
   text-transform: uppercase;
