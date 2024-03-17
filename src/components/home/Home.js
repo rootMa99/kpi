@@ -7,14 +7,17 @@ import Ptable from "../alphabet/Ptable";
 import Ktable from "../alphabet/Ktable";
 import Details from "./Details";
 import c from "./Home.module.css";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const Home = (p) => {
+  let style;
   const [show, setShow] = useState({ show: false, title: "" });
-
+  const scrollRef = useRef(null);
   const clickHandler = (e, t) => {
-    setShow({ show: false, title: "" })
-    setTimeout(()=>setShow({ show: true, title: t }), 5);
+    setShow({ show: false, title: "" });
+    style={"minHeight":"125rem"}
+    setTimeout(() => setShow({ show: true, title: t }), 5);
+    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -87,9 +90,7 @@ const Home = (p) => {
           </div>
         </div>
       </div>
-      {
-        show.show && <Details title={show.title} />
-      }
+      <div ref={scrollRef} style={{"minHeight": "30rem"}}>{show.show && <Details title={show.title} />}</div>
     </React.Fragment>
   );
 };

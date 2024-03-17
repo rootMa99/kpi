@@ -40,3 +40,10 @@
   right: -35px;
   top: -16px;
 }
+.chartH{
+  height: 20rem;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  /* background-color: #383942; */
+}
