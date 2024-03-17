@@ -10,12 +10,10 @@ import c from "./Home.module.css";
 import React, { useRef, useState } from "react";
 
 const Home = (p) => {
-  let style;
   const [show, setShow] = useState({ show: false, title: "" });
   const scrollRef = useRef(null);
   const clickHandler = (e, t) => {
     setShow({ show: false, title: "" });
-    style = { minHeight: "125rem" };
     setTimeout(() => setShow({ show: true, title: t }), 5);
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
