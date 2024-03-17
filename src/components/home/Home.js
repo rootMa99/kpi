@@ -6,12 +6,19 @@ import Itable from "../alphabet/Itable";
 import Ptable from "../alphabet/Ptable";
 import Ktable from "../alphabet/Ktable";
 import Details from "./Details";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import c from "./Home.module.css";
 import React, { useRef, useState } from "react";
 
 const Home = (p) => {
   const [show, setShow] = useState({ show: false, title: "" });
+  const [selectedDate, setSelectedDate] = useState(null);
   const scrollRef = useRef(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
   const clickHandler = (e, t) => {
     setShow({ show: false, title: "" });
     setTimeout(() => setShow({ show: true, title: t }), 5);
@@ -20,6 +27,15 @@ const Home = (p) => {
 
   return (
     <React.Fragment>
+      <div className={c.datePicker}>
+        <DatePicker
+          selected={selectedDate}
+          onChange={handleDateChange}
+          dateFormat="MMMM yyyy"
+          showMonthYearPicker
+          showFullMonthYearPicker
+        />
+      </div>
       <div className={c.head}>
         <div className={c.wrapAl} onClick={(e) => clickHandler(e, "safety")}>
           <div className={c.title}>
