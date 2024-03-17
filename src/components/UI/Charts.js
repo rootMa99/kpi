@@ -1,5 +1,5 @@
 import c from "./Charts.module.css";
-import { Bar, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineElement,
