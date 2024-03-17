@@ -26,6 +26,7 @@ const Home = (p) => {
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
+console.log(selectedDate);
   return (
     <React.Fragment>
       <div className={c.datePicker}>
