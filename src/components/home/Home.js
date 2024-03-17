@@ -29,6 +29,7 @@ const Home = (p) => {
   return (
     <React.Fragment>
       <div className={c.datePicker}>
+      <label>select date</label>
         <DatePicker
           selected={selectedDate}
           onChange={handleDateChange}

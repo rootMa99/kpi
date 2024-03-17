@@ -57,42 +57,16 @@
   top: 1rem;
   right: 2rem;
   z-index: 11111;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-
-/* General styles */
 .custom-datepicker {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  text-align: center;
 }
-
-/* Header */
-.custom-datepicker .react-datepicker__header {
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 4px 4px 0 0;
-}
-
-/* Month and year dropdown */
-.custom-datepicker .react-datepicker__month-dropdown,
-.custom-datepicker .react-datepicker__year-dropdown {
-  background-color: #fff;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 4px 8px;
-}
-
-/* Day cells */
-.custom-datepicker .react-datepicker__day {
-  color: #333;
-  border-radius: 4px;
-}
-
-.custom-datepicker .react-datepicker__day:hover {
-  background-color: #e9ecef;
-}
-
-.custom-datepicker .react-datepicker__day--selected {
-  background-color: #007bff;
-  color: #fff;
+.datePicker label{
+  color: #f84018;
+  text-transform: uppercase;
 }
