@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import c from "./AddData.module.css";
 
 const AddData = (p) => {
@@ -41,48 +41,40 @@ const AddData = (p) => {
             </div>
           </div>
           {data.target > data.real && (
-            <div className={c["form-group"]}>
-              <div className={c.inputC}>
-                <h3>Issue description:</h3>
-                <input
-                  type="text"
-                  placeholder="Enter Issue description"
-                  required
-                />
+            <React.Fragment>
+              <h3 className={c.titleAP}>waring: YOU MUST ENTER AN ACTION PLAN</h3>
+
+              <div className={c["form-group"]}>
+                <div className={c.inputC}>
+                  <h3>Issue description:</h3>
+                  <input
+                    type="text"
+                    placeholder="Enter Issue description"
+                    required
+                  />
+                </div>
+                <div className={c.inputC}>
+                  <h3>Causes:</h3>
+                  <input type="text" placeholder="Enter Causes" required />
+                </div>
+                <div className={c.inputC}>
+                  <h3>Contermeasures:</h3>
+                  <input
+                    type="text"
+                    placeholder="Enter Contermeasures"
+                    required
+                  />
+                </div>
+                <div className={c.inputC}>
+                  <h3>Resp:</h3>
+                  <input type="text" placeholder="Enter Resp" required />
+                </div>
+                <div className={c.inputC}>
+                  <h3>Due date:</h3>
+                  <input type="text" placeholder="Enter Due date" required />
+                </div>
               </div>
-              <div className={c.inputC}>
-                <h3>Causes:</h3>
-                <input
-                  type="text"
-                  placeholder="Enter Causes"
-                  required
-                />
-              </div>
-              <div className={c.inputC}>
-                <h3>Contermeasures:</h3>
-                <input
-                  type="text"
-                  placeholder="Enter Contermeasures"
-                  required
-                />
-              </div>
-              <div className={c.inputC}>
-                <h3>Resp:</h3>
-                <input
-                  type="text"
-                  placeholder="Enter Resp"
-                  required
-                />
-              </div>
-              <div className={c.inputC}>
-                <h3>Due date:</h3>
-                <input
-                  type="text"
-                  placeholder="Enter Due date"
-                  required
-                />
-              </div>
-            </div>
+            </React.Fragment>
           )}
           <button className={c["form-submit-btn"]} type="submit">
             submit

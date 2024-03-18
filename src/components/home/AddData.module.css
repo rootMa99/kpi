@@ -43,9 +43,9 @@
   .form-container .form-group {
     display: flex;
     flex-direction: row;
-    gap: 2px;
+    gap: 2rem;
     justify-content: space-between;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 94%;
   }
   
@@ -120,4 +120,12 @@
   .inputC h3 , .inputD h3{
     text-align: left;
     text-transform: uppercase;
+  }
+  /* .inputC:last-of-type{
+    flex-grow: 1;
+  } */
+  .titleAP{
+    color: #f84018;
+    text-transform: uppercase;
+    margin-top: 2rem;
   }
