@@ -10,6 +10,9 @@ const dataSlice = createSlice({
     reducers:{
         addData(s,p){
             s.data=p.payload;
+        },
+        setTime(s, p){
+            s.date=p.payload;
         }
     }
 }) 

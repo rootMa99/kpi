@@ -10,15 +10,19 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import c from "./Home.module.css";
 import React, { useRef, useState } from "react";
-import { getMonthAndYear } from "../functions/utils";
+import { getMonthAndYear, getStartAndEndMonth } from "../functions/utils";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/dataSlice";
 
 const Home = (p) => {
   const [show, setShow] = useState({ show: false, title: "" });
   const [selectedDate, setSelectedDate] = useState(getMonthAndYear());
   const scrollRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    dispatch(dataActions.setTime(getStartAndEndMonth(date)))
   };
   const clickHandler = (e, t) => {
     setShow({ show: false, title: "" });
@@ -47,7 +51,7 @@ console.log(selectedDate);
             <h3>Safety</h3>
           </div>
           <div className={c.alphabetH}>
-            <Ttable />
+            <Ttable date={selectedDate}/>
           </div>
         </div>
         <div className={c.wrapAl} onClick={(e) => clickHandler(e, "skills")}>
@@ -56,7 +60,7 @@ console.log(selectedDate);
             <h3>Skills</h3>
           </div>
           <div className={c.alphabetH}>
-            <Stable />
+            <Stable date={selectedDate}/>
           </div>
         </div>
         <div className={c.wrapAl} onClick={(e) => clickHandler(e, "quality")}>
@@ -65,7 +69,7 @@ console.log(selectedDate);
             <h3>quality</h3>
           </div>
           <div className={c.alphabetH}>
-            <Qletter />
+            <Qletter date={selectedDate}/>
           </div>
         </div>
         <div className={c.wrapAl} onClick={(e) => clickHandler(e, "delivery")}>
@@ -74,7 +78,7 @@ console.log(selectedDate);
             <h3>delivery</h3>
           </div>
           <div className={c.alphabetH}>
-            <Dtable />
+            <Dtable date={selectedDate}/>
           </div>
         </div>
         <div className={c.wrapAl} onClick={(e) => clickHandler(e, "inventory")}>
@@ -83,7 +87,7 @@ console.log(selectedDate);
             <h3>inventory</h3>
           </div>
           <div className={c.alphabetH}>
-            <Itable />
+            <Itable date={selectedDate}/>
           </div>
         </div>
         <div
@@ -95,7 +99,7 @@ console.log(selectedDate);
             <h3>productivity</h3>
           </div>
           <div className={c.alphabetH}>
-            <Ptable />
+            <Ptable date={selectedDate}/>
           </div>
         </div>
         <div className={c.wrapAl} onClick={(e) => clickHandler(e, "kaizen")}>
@@ -104,7 +108,7 @@ console.log(selectedDate);
             <h3>kaizen</h3>
           </div>
           <div className={c.alphabetH}>
-            <Ktable />
+            <Ktable date={selectedDate}/>
           </div>
         </div>
       </div>

@@ -4,6 +4,21 @@ export const getMonthAndYear = () => {
   const currentYear = today.getFullYear();
   return `${currentMonth}-${currentYear}`;
 };
+export const getStartAndEndMonth = (inputDate) => {
+  const startOfMonth = new Date(
+    inputDate.getFullYear(),
+    inputDate.getMonth(),
+    1
+  );
+  const startOfMonthFormatted = startOfMonth.toISOString().slice(0, 10);
+  const endOfMonth = new Date(
+    inputDate.getFullYear(),
+    inputDate.getMonth() + 1,
+    0
+  );
+  const endOfMonthFormatted = endOfMonth.toISOString().slice(0, 10);
+  return { start: startOfMonthFormatted, end: endOfMonthFormatted };
+};
 export const getOnlyDay = (data) => {
   const rd = [];
   data.forEach((e) => {
@@ -25,19 +40,21 @@ export const filterBydataName = (data, dataName) => {
   });
   return rd;
 };
-export const colorDays=(data, dayC)=>{
-    const day= new Date().toISOString().split("-")[2].split("T")[0];
-    if(dayC>day){
-        return {};
+export const colorDays = (data, dayC) => {
+  const day = new Date().toISOString().split("-")[2].split("T")[0];
+  const today= new Date().toDateString().split("T")[0];
+  console.log(today)
+  if (dayC > day || data.length===0 ) {
+    return {};
+  }
+  const index = data.findIndex((f) => f.day === dayC);
+  if (index === -1) {
+    return { backgroundColor: "#0720d9" };
+  } else {
+    if (data[index].data[0].real > data[index].data[0].target) {
+      return { backgroundColor: "#006B63" };
+    } else {
+      return { backgroundColor: "#CF3335" };
     }
-    const index= data.findIndex(f=>f.day===dayC);
-    if(index===-1){
-        return {"backgroundColor":"#3BC6EB"}
-    }else{
-        if(data[index].data[0].real>data[index].data[0].target){
-            return {"backgroundColor":"#006B63"}
-        }else{
-            return {"backgroundColor":"#CF3335"}
-        }
-    }
-}
+  }
+};
