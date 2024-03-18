@@ -32,12 +32,12 @@ export const colorDays=(data, dayC)=>{
     }
     const index= data.findIndex(f=>f.day===dayC);
     if(index===-1){
-        return {"backgroundColor":"blue"}
+        return {"backgroundColor":"#3BC6EB"}
     }else{
         if(data[index].data[0].real>data[index].data[0].target){
-            return {"backgroundColor":"green"}
+            return {"backgroundColor":"#006B63"}
         }else{
-            return {"backgroundColor":"red"}
+            return {"backgroundColor":"#CF3335"}
         }
     }
 }
