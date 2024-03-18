@@ -26,12 +26,12 @@ const Charts = (p) => {
       "OCT",
       "NOV",
       "DEC",
-    ]:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+    ]:p.data.map(m=>m.day),
     datasets: [
       {
         type: "line",
         //label: "Target Data",
-        data: [19, 6, 9, 10, 7, 8, 13, 11, 15, 2, 17],
+        data: p.title==="monthly"?  [19, 6, 9, 10, 7, 8, 13, 11, 15, 2, 17] : p.data.map(m=>m.data[0].target),
         backgroundColor: "#F84018",
         pointHoverBorderColor: "#FAF0E6",
         borderColor: "#F84018",
@@ -49,7 +49,7 @@ const Charts = (p) => {
       {
         type: "bar",
         //label: "Actual Data",
-        data: [17, 19, 6, 15, 2, 13, 7, 8, 9, 10, 11],
+        data:p.title==="monthly"? [17, 19, 6, 15, 2, 13, 7, 8, 9, 10, 11] : p.data.map(m=>m.data[0].target),
         backgroundColor: ["#D83F31", "#219C90", "#D83F31","#219C90","#D83F31","#219C90","#D83F31","#D83F31","#D83F31", "#219C90", "#D83F31"],
         //hoverBackgroundColor: "#950101",
         borderColor: "black",

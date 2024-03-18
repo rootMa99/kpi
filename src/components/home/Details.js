@@ -1,7 +1,12 @@
+import { useSelector } from "react-redux";
 import Charts from "../UI/Charts";
 import c from "./Details.module.css";
+import { filterBydataName } from "../functions/utils";
 
 const Details = (p) => {
+  const {data}= useSelector(s=>s.data);
+  const filtredData= filterBydataName(data, p.title);
+  console.log(data, filtredData, p.title)
   return (
     <div className={c.container}>
       <div className={c.title}>
@@ -12,7 +17,7 @@ const Details = (p) => {
         <Charts title="monthly" />
       </div>
       <div className={c.chartH}>
-        <Charts title="daily" />
+        <Charts title="daily" data={filtredData} />
       </div>
     </div>
   );
