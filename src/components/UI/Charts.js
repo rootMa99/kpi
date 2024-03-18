@@ -12,26 +12,42 @@ import {
 } from "chart.js";
 
 const Charts = (p) => {
+  const bgcolor = [];
+  if(p.title === "daily"){
+    p.data.map((m) =>
+    m.data[0].real >= m.data[0].target
+      ? bgcolor.push("#005B41")
+      : bgcolor.push("rgb(88, 3, 3)")
+  );
+  }
+  
+
   const data = {
-    labels: p.title==="monthly"? [
-      "JAN",
-      "FEB",
-      "MAR",
-      "APR",
-      "MAY",
-      "JUN",
-      "JUL",
-      "AUG",
-      "SEP",
-      "OCT",
-      "NOV",
-      "DEC",
-    ]:p.data.map(m=>m.day),
+    labels:
+      p.title === "monthly"
+        ? [
+            "JAN",
+            "FEB",
+            "MAR",
+            "APR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AUG",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DEC",
+          ]
+        : p.data.map((m) => m.day),
     datasets: [
       {
         type: "line",
         //label: "Target Data",
-        data: p.title==="monthly"?  [19, 6, 9, 10, 7, 8, 13, 11, 15, 2, 17] : p.data.map(m=>m.data[0].target),
+        data:
+          p.title === "monthly"
+            ? [19, 6, 9, 10, 7, 8, 13, 11, 15, 2, 17]
+            : p.data.map((m) => m.data[0].target),
         backgroundColor: "#F84018",
         pointHoverBorderColor: "#FAF0E6",
         borderColor: "#F84018",
@@ -49,8 +65,26 @@ const Charts = (p) => {
       {
         type: "bar",
         //label: "Actual Data",
-        data:p.title==="monthly"? [17, 19, 6, 15, 2, 13, 7, 8, 9, 10, 11] : p.data.map(m=>m.data[0].target),
-        backgroundColor: ["#D83F31", "#219C90", "#D83F31","#219C90","#D83F31","#219C90","#D83F31","#D83F31","#D83F31", "#219C90", "#D83F31"],
+        data:
+          p.title === "monthly"
+            ? [17, 19, 6, 15, 2, 13, 7, 8, 9, 10, 11]
+            : p.data.map((m) => m.data[0].real),
+        backgroundColor:
+          p.title === "monthly"
+            ? [
+                "#D83F31",
+                "#219C90",
+                "#D83F31",
+                "#219C90",
+                "#D83F31",
+                "#219C90",
+                "#D83F31",
+                "#D83F31",
+                "#D83F31",
+                "#219C90",
+                "#D83F31",
+              ]
+            : bgcolor,
         //hoverBackgroundColor: "#950101",
         borderColor: "black",
         borderWidth: 1,
@@ -138,11 +172,11 @@ const Charts = (p) => {
   );
   return (
     <div className={c.chartHolder}>
-    <div className={c.title}>
-    <span></span>
-    <h3> {p.title} </h3>
-    <span></span>
-    </div>
+      <div className={c.title}>
+        <span></span>
+        <h3> {p.title} </h3>
+        <span></span>
+      </div>
       <Line data={data} options={options} />
     </div>
   );
