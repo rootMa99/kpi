@@ -95,3 +95,24 @@
   color: #f84018;
   text-transform: uppercase;
 }
+
+.topTitle{
+  position: absolute;
+  z-index: 11111;
+  top: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fffefe;
+  text-transform: capitalize;
+  font-variant-caps: petite-caps;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+.topTitle span{
+  width: 2rem;
+  height: 2rem;
+  background-color: #f84018;
+  border-radius: 50%;
+}

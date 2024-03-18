@@ -33,6 +33,7 @@ const Home = (p) => {
   console.log(selectedDate);
   return (
     <React.Fragment>
+    <h1 className={c.topTitle}> <span></span> daily performance management </h1>
       <div className={c.datePicker}>
         <label>PICK A DATE</label>
         <DatePicker
