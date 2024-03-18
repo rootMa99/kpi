@@ -1,0 +1,18 @@
+root:/dpm;
+/addDelivery
+/addInventory
+/addKaizen
+/addProductivity
+/addQuality
+/addSafety
+/addSkills
+
+
+
+public class DeliveryModel {
+    private Date date;
+    private String nameData;
+    private double real;
+    private double target;
+}
+

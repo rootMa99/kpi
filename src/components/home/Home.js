@@ -13,13 +13,18 @@ import React, { useRef, useState } from "react";
 import { getStartAndEndMonth } from "../functions/utils";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/dataSlice";
+import { useLocation } from "react-router";
+import AddData from "./AddData";
 
 const Home = (p) => {
   const [show, setShow] = useState({ show: false, title: "" });
   const [selectedDate, setSelectedDate] = useState(new Date());
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
+  console.log(currentPath);
   const handleDateChange = (date) => {
     setSelectedDate(date);
     dispatch(dataActions.setTime(getStartAndEndMonth(date)));
@@ -129,7 +134,8 @@ const Home = (p) => {
         </div>
       </div>
       <div ref={scrollRef} style={{ minHeight: "30rem" }}>
-        {show.show && <Details title={show.title} />}
+        {(show.show && currentPath!=="/admin") && <Details title={show.title} />}
+        {(show.show && currentPath==="/admin") && <AddData title={show.title} />}
       </div>
     </React.Fragment>
   );

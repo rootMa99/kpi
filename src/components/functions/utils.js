@@ -42,13 +42,11 @@ export const filterBydataName = (data, dataName) => {
 };
 export const colorDays = (data, dayC, date) => {
   const today= new Date();
-  console.log(today)
   const currentdate = new Date(
     date.getFullYear(),
     date.getMonth(),
     dayC
   );
-    console.log(currentdate, date)
   if (currentdate > today) {
     return {};
   }
