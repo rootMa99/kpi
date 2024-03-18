@@ -13,10 +13,10 @@ const Details = (p) => {
         <div className={c.line}></div>
         <h3>{p.title}</h3>
       </div>
-      <div className={c.chartH}>
+      <div className={c.chartH} style={{"marginTop":0}}>
         <Charts title="daily" data={filtredData} />
       </div>
-      <div className={c.chartH} style={{"marginTop":0}}>
+      <div className={c.chartH} >
         <Charts title="monthly" />
       </div>
     </div>

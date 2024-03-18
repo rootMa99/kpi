@@ -41,16 +41,15 @@ export const filterBydataName = (data, dataName) => {
   return rd;
 };
 export const colorDays = (data, dayC, date) => {
-  const day = new Date().toISOString().split("-")[2].split("T")[0];
-  const today= new Date().toDateString().split("T")[0];
+  const today= new Date();
   console.log(today)
   const currentdate = new Date(
-    new Date().getFullYear(),
-    new Date().getMonth(),
+    date.getFullYear(),
+    date.getMonth(),
     dayC
   );
-    console.log(currentdate)
-  if (dayC > day || data.length===0 ) {
+    console.log(currentdate, date)
+  if (currentdate > today) {
     return {};
   }
   const index = data.findIndex((f) => f.day === dayC);
