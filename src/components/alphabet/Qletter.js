@@ -4,7 +4,7 @@ import c from "./Stable.module.css";
 
 const Qletter = (p) => {
   const { data } = useSelector((s) => s.data);
-  const filtredData = filterBydataName(data, "productivity");
+  const filtredData = filterBydataName(data, "quality");
   return (
     <table className={c["letter-s"]}>
       <tr>
