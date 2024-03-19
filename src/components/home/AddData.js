@@ -130,6 +130,7 @@ console.log(data.date)
               <input
                 type="number"
                 placeholder="Enter your real data"
+                step="0.01"
                 required
                 onChange={(e) =>
                   setData((p) => {
@@ -143,6 +144,7 @@ console.log(data.date)
               <input
                 type="number"
                 placeholder="Enter your target data"
+                step="0.01"
                 required
                 onChange={(e) =>
                   setData((p) => {
