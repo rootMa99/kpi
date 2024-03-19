@@ -105,23 +105,6 @@
     background-color: #313131;
   }
   
-  .form-container .link {
-    color: #1778f2;
-    text-decoration: none;
-  }
-  
-  .form-container .signup-link {
-    align-self: center;
-    font-weight: 500;
-  }
-  
-  .form-container .signup-link .link {
-    font-weight: 400;
-  }
-  
-  .form-container .link:hover {
-    text-decoration: underline;
-  }
   
   .inputC{
     width: 40%;

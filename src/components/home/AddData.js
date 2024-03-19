@@ -2,28 +2,23 @@ import React, { useState } from "react";
 import c from "./AddData.module.css";
 import Select from "react-select";
 
-const dataOp = [{ value: "action assigned", lable: "action assigned" }];
+const dataOp = [{ value: "action assigned", label: "action assigned" }];
 
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
     width: "100%",
-    height: "3rem",
+    padding: "4px 20px",
     fontWeight: "600",
     textTransform: "uppercase",
     borderRadius: "5px",
-    fontFamily: `Formular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-              "Segoe UI Symbol"`,
     letterSpacing: "2px",
-    textAlign: "center",
+    textAlign: "left",
     outline: "none",
-    border: "2px solid #ecf0f162",
-    backgroundColor: "rgba(24, 13, 13, 0.37)",
+    border: "1px solid #ccc",
     boxShadow: "none",
     "&:hover": {
-      border: "2px solid rgb(255, 255, 255)",
-      backgroundColor: "rgba(100, 98, 98, 0.37)",
+      border: "1px solid #f84018",
       cursor: "pointer",
     },
   }),
@@ -145,8 +140,7 @@ const AddData = (p) => {
                 </div>
                 <div className={c.inputC}>
                   <h3>Starus:</h3>
-                  <input type="text" placeholder="Enter Due date" required />
-                  <Select options={dataOp} />
+                  <Select options={dataOp} styles={customStyles}/>
                 </div>
               </div>
             </React.Fragment>
