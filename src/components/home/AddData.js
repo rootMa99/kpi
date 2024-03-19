@@ -94,7 +94,8 @@ const onSubmitHandeler=async e=>{
       
   }
   try {
-    const response = await fetch(`${api}/${fullPath}`, {
+    // const response = await fetch(`${api}/${fullPath}`, {
+     await fetch(`${api}/${fullPath}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -154,47 +155,7 @@ console.log(data.date)
               />
             </div>
           </div>
-          {data.target > data.real && (
-            <React.Fragment>
-              <h3 className={c.titleAP}>
-                waring: YOU MUST ENTER AN ACTION PLAN
-              </h3>
-              <div className={c["form-group"]}>
-                <div className={c.inputC}>
-                  <h3>Issue description:</h3>
-                  <input
-                    type="text"
-                    placeholder="Enter Issue description"
-                    required
-                  />
-                </div>
-                <div className={c.inputC}>
-                  <h3>Causes:</h3>
-                  <input type="text" placeholder="Enter Causes" required />
-                </div>
-                <div className={c.inputC}>
-                  <h3>Contermeasures:</h3>
-                  <input
-                    type="text"
-                    placeholder="Enter Contermeasures"
-                    required
-                  />
-                </div>
-                <div className={c.inputC}>
-                  <h3>Resp:</h3>
-                  <input type="text" placeholder="Enter Resp" required />
-                </div>
-                <div className={c.inputC}>
-                  <h3>Due date:</h3>
-                  <input type="date" required />
-                </div>
-                <div className={c.inputC}>
-                  <h3>Starus:</h3>
-                  <Select options={dataOp} styles={customStyles}/>
-                </div>
-              </div>
-            </React.Fragment>
-          )}
+         
           <button className={c["form-submit-btn"]} type="submit">
             submit
           </button>
@@ -205,3 +166,49 @@ console.log(data.date)
 };
 
 export default AddData;
+
+
+
+
+
+// {data.target > data.real && (
+//   <React.Fragment>
+//     <h3 className={c.titleAP}>
+//       waring: YOU MUST ENTER AN ACTION PLAN
+//     </h3>
+//     <div className={c["form-group"]}>
+//       <div className={c.inputC}>
+//         <h3>Issue description:</h3>
+//         <input
+//           type="text"
+//           placeholder="Enter Issue description"
+//           required
+//         />
+//       </div>
+//       <div className={c.inputC}>
+//         <h3>Causes:</h3>
+//         <input type="text" placeholder="Enter Causes" required />
+//       </div>
+//       <div className={c.inputC}>
+//         <h3>Contermeasures:</h3>
+//         <input
+//           type="text"
+//           placeholder="Enter Contermeasures"
+//           required
+//         />
+//       </div>
+//       <div className={c.inputC}>
+//         <h3>Resp:</h3>
+//         <input type="text" placeholder="Enter Resp" required />
+//       </div>
+//       <div className={c.inputC}>
+//         <h3>Due date:</h3>
+//         <input type="date" required />
+//       </div>
+//       <div className={c.inputC}>
+//         <h3>Starus:</h3>
+//         <Select options={dataOp} styles={customStyles}/>
+//       </div>
+//     </div>
+//   </React.Fragment>
+// )}

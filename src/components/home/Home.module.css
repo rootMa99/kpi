@@ -1,10 +1,9 @@
 .head {
-  width: 100;
   margin: auto 0;
   display: flex;
   margin-top: 10px;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: space-evenly;
+  align-items: flex-start;
 }
 .wrapAl {
   padding: 1rem;
@@ -18,7 +17,7 @@
   display: flex;
   position: relative;
   padding-top: 3rem;
-  border-left: 1px solid white;
+
 }
 .ndiv h1 {
   position: absolute;
@@ -27,6 +26,10 @@
   transform: translate(-50%, -50%);
   color: #fffefe;
   text-transform: uppercase;
+}
+.ndiv h1::first-letter{
+  color: #f84018;
+  font-size: xx-large;
 }
 .wrapAl:hover {
   transform: scale(1.1);
@@ -46,6 +49,7 @@
   margin: 0;
   text-transform: uppercase;
 }
+
 .alphabetH {
   margin-top: 2rem;
 }

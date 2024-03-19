@@ -16,9 +16,6 @@ const Details = (p) => {
       <div className={c.chartH} style={{"marginTop":0}}>
         <Charts title="daily" data={filtredData} />
       </div>
-      <div className={c.chartH} >
-        <Charts title="monthly" />
-      </div>
     </div>
   );
 };
