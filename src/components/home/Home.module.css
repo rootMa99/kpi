@@ -25,7 +25,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fffefe;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-variant-caps: petite-caps;
 }
 .ndiv h1::first-letter{
   color: #f84018;

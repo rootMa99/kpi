@@ -10,17 +10,17 @@ import {
   Legend,
   BarElement,
 } from "chart.js";
+import React from "react";
 
 const Charts = (p) => {
   const bgcolor = [];
-  if(p.title === "daily"){
+  if (p.title === "daily") {
     p.data.map((m) =>
-    m.data[0].real >= m.data[0].target
-      ? bgcolor.push("#005B41")
-      : bgcolor.push("rgb(88, 3, 3)")
-  );
+      m.data[0].real >= m.data[0].target
+        ? bgcolor.push("#005B41")
+        : bgcolor.push("rgb(88, 3, 3)")
+    );
   }
-  
 
   const data = {
     labels:
@@ -97,7 +97,6 @@ const Charts = (p) => {
         pointBorderColor: bgcolor,
         pointBorderWidth: 8,
         pointRadius: 3,
-       
       },
     ],
   };
@@ -188,6 +187,51 @@ const Charts = (p) => {
         <span></span>
       </div>
       <Line data={data} options={options} />
+      <div className={c.title}>
+        <span></span>
+        <h3> Action plan </h3>
+        <span></span>
+      </div>
+      <table className={c.table}>
+        <thead>
+          <tr>
+            <th>day</th>
+            <th>issue Description</th>
+            <th>causes</th>
+            <th width="30%">contermeasures</th>
+            <th>due Date</th>
+            <th>resp</th>
+            <th>status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {p.data.map(
+            (m) =>
+              m.data[0].apm != null && (
+                <tr>
+                  <td>{m.day}</td>
+                  <td>{m.data[0].apm.issueDescription}</td>
+                  <td>{m.data[0].apm.causes}</td>
+                  <td>{m.data[0].apm.contermeasures}</td>
+                  <td>{m.data[0].apm.dueDate}</td>
+                  <td>{m.data[0].apm.resp}</td>
+                  <td>{m.data[0].apm.status}</td>
+                </tr>
+              )
+          )}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   );
 };

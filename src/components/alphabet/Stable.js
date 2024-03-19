@@ -65,14 +65,32 @@ const Stable = (p) => {
         <td className={c.corner} style={colorDays(filtredData, 22, p.date)}><span>22</span></td>
       </tr>
       <tr>
-        <td className={c.corner} style={colorDays(filtredData, 23, p.date)}><span>23</span></td>
+        <td className={c.corner} style={colorDays(filtredData, 23, p.date)} rowSpan={3}><span>23</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} style={colorDays(filtredData, 24, p.date)}><span>24</span></td>
+        <td className={c.corner} style={colorDays(filtredData, 24, p.date)} rowSpan={3}><span>24</span></td>
       </tr>
+      <tr>
+      <td className={c.top}  ></td>
+      <td className={c.top}></td>
+      <td className={c.top}></td>
+      <td className={c.top}></td>
+      <td className={c.top}></td>
+      <td className={c.top}></td>
+      <td className={c.top}></td>
+    </tr>
+    <tr>
+    <td className={c.top}  ></td>
+    <td className={c.top}></td>
+    <td className={c.top}></td>
+    <td className={c.top}></td>
+    <td className={c.top}></td>
+    <td className={c.top}></td>
+    <td className={c.top}></td>
+  </tr>
       <tr>
         <td className={c.corner} style={colorDays(filtredData, 25, p.date)}><span>25</span></td>
         <td className={c.corner} style={colorDays(filtredData, 26, p.date)}><span>26</span></td>

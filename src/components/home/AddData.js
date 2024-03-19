@@ -64,54 +64,66 @@ const customStyles = {
 };
 
 const AddData = (p) => {
-  const [data, setData] = useState({ date: "", target: 0, real: 0 });
-const onSubmitHandeler=async e=>{
-  e.preventDefault();
-  let fullPath;
-  switch (p.title) {
-    case "delivery":
-        fullPath="addDelivery";;
-      break;
-    case "inventory":
-        fullPath="addInventory";
-      break;
-    case "kaizen":
-        fullPath="addKaizen";
-      break;
-    case "productivity":
-      fullPath="addProductivity";
-      break;
-    case "quality":
-      fullPath="addQuality";
-      break;
-    case "safety":
-      fullPath="addSafety";
-      break;
-    case "skills":
-      fullPath="addSkills";
-      break;
-  default:
-      
-  }
-  try {
-    // const response = await fetch(`${api}/${fullPath}`, {
-     await fetch(`${api}/${fullPath}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // Authorization: `Bearer ${isLoged.token}`,
-      },
-      body: JSON.stringify(data),
-    });
+  const [data, setData] = useState({ date: "", target: 0, real: 0 , apm:null});
+  const [apm, setApm] = useState({
+    issueDescription: "",
+    causes: "",
+    contermeasures: "",
+    resp: "",
+    dueDate: "",
+    status: "",
+  });
+  const onSubmitHandeler = async (e) => {
+    e.preventDefault();
+    let body=data;
+    if((data.target > data.real && p.title !== "safety") ||
+    (data.target < data.real && p.title === "safety")){
+      body.apm=apm;
+    }
+    let fullPath;
+    switch (p.title) {
+      case "delivery":
+        fullPath = "addDelivery";
+        break;
+      case "inventory":
+        fullPath = "addInventory";
+        break;
+      case "kaizen":
+        fullPath = "addKaizen";
+        break;
+      case "productivity":
+        fullPath = "addProductivity";
+        break;
+      case "quality":
+        fullPath = "addQuality";
+        break;
+      case "safety":
+        fullPath = "addSafety";
+        break;
+      case "skills":
+        fullPath = "addSkills";
+        break;
+      default:
+    }
+    try {
+      // const response = await fetch(`${api}/${fullPath}`, {
+      await fetch(`${api}/${fullPath}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${isLoged.token}`,
+        },
+        body: JSON.stringify(body),
+      });
 
-    // const datar = await response.json();
-  // console.Console(datar);
-    p.click(e, p.title)
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-console.log(data.date)
+      // const datar = await response.json();
+      // console.Console(datar);
+      p.click(e, p.title);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  console.log(data.date);
   return (
     <div className={c.container}>
       <div className={c["form-container"]}>
@@ -119,11 +131,15 @@ console.log(data.date)
         <form className={c.form} onSubmit={onSubmitHandeler}>
           <div className={c.inputD}>
             <h3>choose date:</h3>
-            <input type="date" required onChange={(e) =>
-              setData((p) => {
-                return { ...p, date: e.target.value };
-              })
-            } />
+            <input
+              type="date"
+              required
+              onChange={(e) =>
+                setData((p) => {
+                  return { ...p, date: e.target.value };
+                })
+              }
+            />
           </div>
           <div className={c["form-group"]}>
             <div className={c.inputC}>
@@ -155,7 +171,75 @@ console.log(data.date)
               />
             </div>
           </div>
-         
+          {((data.target > data.real && p.title !== "safety") ||
+            (data.target < data.real && p.title === "safety")) && (
+            <React.Fragment>
+              <h3 className={c.titleAP}>
+                waring: YOU MUST ENTER AN ACTION PLAN
+              </h3>
+              <div className={c["form-group"]}>
+                <div className={c.inputC}>
+                  <h3>Issue description:</h3>
+                  <input
+                    type="text"
+                    placeholder="Enter Issue description"
+                    onChange={(e) =>
+                      setApm((p) => {
+                        return { ...p, issueDescription: e.target.value };
+                      })
+                    }
+                    required
+                  />
+                </div>
+                <div className={c.inputC}>
+                  <h3>Causes:</h3>
+                  <input type="text" placeholder="Enter Causes" required  onChange={(e) =>
+                    setApm((p) => {
+                      return { ...p, causes: e.target.value };
+                    })
+                  }/>
+                </div>
+                <div className={c.inputC}>
+                  <h3>Contermeasures:</h3>
+                  <input
+                    type="text"
+                    placeholder="Enter Contermeasures"
+                    required
+                    onChange={(e) =>
+                      setApm((p) => {
+                        return { ...p, contermeasures: e.target.value };
+                      })
+                    }
+                  />
+                </div>
+                <div className={c.inputC}>
+                  <h3>Resp:</h3>
+                  <input type="text" placeholder="Enter Resp" required 
+                  onChange={(e) =>
+                    setApm((p) => {
+                      return { ...p, resp: e.target.value };
+                    })
+                  }/>
+                </div>
+                <div className={c.inputC}>
+                  <h3>Due date:</h3>
+                  <input type="date" required onChange={(e) =>
+                    setApm((p) => {
+                      return { ...p, dueDate: e.target.value };
+                    })
+                  }/>
+                </div>
+                <div className={c.inputC}>
+                  <h3>Status:</h3>
+                  <Select options={dataOp} styles={customStyles} onChange={(e) =>
+                    setApm((p) => {
+                      return { ...p, status: e.value };
+                    })
+                  }/>
+                </div>
+              </div>
+            </React.Fragment>
+          )}
           <button className={c["form-submit-btn"]} type="submit">
             submit
           </button>
@@ -166,49 +250,3 @@ console.log(data.date)
 };
 
 export default AddData;
-
-
-
-
-
-// {data.target > data.real && (
-//   <React.Fragment>
-//     <h3 className={c.titleAP}>
-//       waring: YOU MUST ENTER AN ACTION PLAN
-//     </h3>
-//     <div className={c["form-group"]}>
-//       <div className={c.inputC}>
-//         <h3>Issue description:</h3>
-//         <input
-//           type="text"
-//           placeholder="Enter Issue description"
-//           required
-//         />
-//       </div>
-//       <div className={c.inputC}>
-//         <h3>Causes:</h3>
-//         <input type="text" placeholder="Enter Causes" required />
-//       </div>
-//       <div className={c.inputC}>
-//         <h3>Contermeasures:</h3>
-//         <input
-//           type="text"
-//           placeholder="Enter Contermeasures"
-//           required
-//         />
-//       </div>
-//       <div className={c.inputC}>
-//         <h3>Resp:</h3>
-//         <input type="text" placeholder="Enter Resp" required />
-//       </div>
-//       <div className={c.inputC}>
-//         <h3>Due date:</h3>
-//         <input type="date" required />
-//       </div>
-//       <div className={c.inputC}>
-//         <h3>Starus:</h3>
-//         <Select options={dataOp} styles={customStyles}/>
-//       </div>
-//     </div>
-//   </React.Fragment>
-// )}
