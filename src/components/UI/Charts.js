@@ -43,7 +43,7 @@ const Charts = (p) => {
     datasets: [
       {
         type: "line",
-        //label: "Target Data",
+        label: "Target",
         data:
           p.title === "monthly"
             ? [19, 6, 9, 10, 7, 8, 13, 11, 15, 2, 17]
@@ -57,14 +57,14 @@ const Charts = (p) => {
         borderCapStyle: "round",
         pointHoverBackgroundColor: "rgb(88, 3, 3)",
         pointHoverRadius: 8,
-        pointBorderColor: "#F84018",
+        pointBorderColor: "#3BC6EB",
         pointBorderWidth: 8,
-        pointRadius: 3,
+        pointRadius: 1,
         borderDash: [5, 7],
       },
       {
         type: "line",
-        //label: "Actual Data",
+        label: "Actual",
         data:
           p.title === "monthly"
             ? [17, 19, 6, 15, 2, 13, 7, 8, 9, 10, 11]
@@ -86,13 +86,13 @@ const Charts = (p) => {
               ]
             : bgcolor,
         //hoverBackgroundColor: "#950101",
-        pointHoverBorderColor: "#FAF0E6",
+        // pointHoverBorderColor: "#FAF0E6",
         borderColor: "#F84018",
         fill: false,
         tension: 0.3,
         borderWidth: 3,
         borderCapStyle: "round",
-        pointHoverBackgroundColor: "rgb(88, 3, 3)",
+        // pointHoverBackgroundColor: "rgb(88, 3, 3)",
         pointHoverRadius: 8,
         pointBorderColor: bgcolor,
         pointBorderWidth: 8,
@@ -138,7 +138,7 @@ const Charts = (p) => {
         labels: {
           color: "#FAF0E6",
         },
-        display: false,
+        display: true,
       },
       datalabels: {
         display: true,
