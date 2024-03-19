@@ -1,8 +1,76 @@
 import React, { useState } from "react";
 import c from "./AddData.module.css";
+import Select from "react-select";
+
+const dataOp = [{ value: "action assigned", lable: "action assigned" }];
+
+const customStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    width: "100%",
+    height: "3rem",
+    fontWeight: "600",
+    textTransform: "uppercase",
+    borderRadius: "5px",
+    fontFamily: `Formular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+              "Segoe UI Symbol"`,
+    letterSpacing: "2px",
+    textAlign: "center",
+    outline: "none",
+    border: "2px solid #ecf0f162",
+    backgroundColor: "rgba(24, 13, 13, 0.37)",
+    boxShadow: "none",
+    "&:hover": {
+      border: "2px solid rgb(255, 255, 255)",
+      backgroundColor: "rgba(100, 98, 98, 0.37)",
+      cursor: "pointer",
+    },
+  }),
+  option: (provided, state) => ({
+    width: "100%",
+    padding: "0.5rem",
+    color: state.isFocused ? "#f3f3f3" : "#474b4d",
+    backgroundColor: state.isFocused && "#474b4d",
+    fontFamily: `Formular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+              "Segoe UI Symbol"`,
+    textTransform: "uppercase",
+    outline: "none",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  }),
+  input: (provided) => ({
+    ...provided,
+    color: "#f3f3f3",
+  }),
+  singleValue: (p) => ({
+    ...p,
+    color: "#f3f3f3",
+  }),
+  menuList: (provided) => ({
+    maxHeight: "350px",
+    overflowY: "auto",
+    overflowX: "hidden",
+    scrollbarWidth: "thin",
+    msOverflowStyle: "none",
+    "&::-webkit-scrollbar": {
+      width: "9px",
+      backgroundColor: "#535151",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#8a0101",
+    },
+    "&::-webkit-scrollbar-track": {
+      backgroundColor: "transparent",
+    },
+  }),
+};
 
 const AddData = (p) => {
   const [data, setData] = useState({ date: "", target: 0, real: 0 });
+
   return (
     <div className={c.container}>
       <div className={c["form-container"]}>
@@ -42,7 +110,9 @@ const AddData = (p) => {
           </div>
           {data.target > data.real && (
             <React.Fragment>
-              <h3 className={c.titleAP}>waring: YOU MUST ENTER AN ACTION PLAN</h3>
+              <h3 className={c.titleAP}>
+                waring: YOU MUST ENTER AN ACTION PLAN
+              </h3>
 
               <div className={c["form-group"]}>
                 <div className={c.inputC}>
@@ -71,7 +141,12 @@ const AddData = (p) => {
                 </div>
                 <div className={c.inputC}>
                   <h3>Due date:</h3>
+                  <input type="date" required />
+                </div>
+                <div className={c.inputC}>
+                  <h3>Starus:</h3>
                   <input type="text" placeholder="Enter Due date" required />
+                  <Select options={dataOp} />
                 </div>
               </div>
             </React.Fragment>
