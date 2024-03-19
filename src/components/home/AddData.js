@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import c from "./AddData.module.css";
 import Select from "react-select";
-
+import api from "../../service/api";
 const dataOp = [{ value: "action assigned", label: "action assigned" }];
 
 const customStyles = {
@@ -65,12 +65,56 @@ const customStyles = {
 
 const AddData = (p) => {
   const [data, setData] = useState({ date: "", target: 0, real: 0 });
+const onSubmitHandeler=async e=>{
+  e.preventDefault();
+  let fullPath;
+  switch (p.title) {
+    case "delivery":
+        fullPath="addDelivery";;
+      break;
+    case "inventory":
+        fullPath="addInventory";
+      break;
+    case "kaizen":
+        fullPath="addKaizen";
+      break;
+    case "productivity":
+      fullPath="addProductivity";
+      break;
+    case "quality":
+      fullPath="addQuality";
+      break;
+    case "safety":
+      fullPath="addSafety";
+      break;
+    case "skills":
+      fullPath="addSafety";
+      break;
+  default:
+      
+  }
+  try {
+    const response = await fetch(`${api}/${fullPath}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: `Bearer ${isLoged.token}`,
+      },
+      body: JSON.stringify(data),
+    });
 
+    const datar = await response.json();
+  console.Console(datar);
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
   return (
     <div className={c.container}>
       <div className={c["form-container"]}>
         <div className={c.title}>add {p.title} data</div>
-        <form className={c.form}>
+        <form className={c.form} onSubmit={onSubmitHandeler}>
           <div className={c.inputD}>
             <h3>choose date:</h3>
             <input type="date" max={new Date()} required />
@@ -108,7 +152,6 @@ const AddData = (p) => {
               <h3 className={c.titleAP}>
                 waring: YOU MUST ENTER AN ACTION PLAN
               </h3>
-
               <div className={c["form-group"]}>
                 <div className={c.inputC}>
                   <h3>Issue description:</h3>
