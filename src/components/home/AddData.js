@@ -88,7 +88,7 @@ const onSubmitHandeler=async e=>{
       fullPath="addSafety";
       break;
     case "skills":
-      fullPath="addSafety";
+      fullPath="addSkills";
       break;
   default:
       
@@ -103,13 +103,14 @@ const onSubmitHandeler=async e=>{
       body: JSON.stringify(data),
     });
 
-    const datar = await response.json();
-  console.Console(datar);
-
+    // const datar = await response.json();
+  // console.Console(datar);
+    p.click(e, p.title)
   } catch (error) {
     console.error("Error:", error);
   }
 }
+console.log(data.date)
   return (
     <div className={c.container}>
       <div className={c["form-container"]}>
@@ -117,7 +118,11 @@ const onSubmitHandeler=async e=>{
         <form className={c.form} onSubmit={onSubmitHandeler}>
           <div className={c.inputD}>
             <h3>choose date:</h3>
-            <input type="date" max={new Date()} required />
+            <input type="date" required onChange={(e) =>
+              setData((p) => {
+                return { ...p, date: e.target.value };
+              })
+            } />
           </div>
           <div className={c["form-group"]}>
             <div className={c.inputC}>

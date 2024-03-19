@@ -135,7 +135,7 @@ const Home = (p) => {
       </div>
       <div ref={scrollRef} style={{ minHeight: "30rem" }}>
         {(show.show && currentPath!=="/admin") && <Details title={show.title} />}
-        {(show.show && currentPath==="/admin") && <AddData title={show.title} />}
+        {(show.show && currentPath==="/admin") && <AddData title={show.title} click={clickHandler} />}
       </div>
     </React.Fragment>
   );

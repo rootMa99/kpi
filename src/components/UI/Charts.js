@@ -50,7 +50,7 @@ const Charts = (p) => {
             : p.data.map((m) => m.data[0].target),
         backgroundColor: "#F84018",
         pointHoverBorderColor: "#FAF0E6",
-        borderColor: "#F84018",
+        borderColor: "#3BC6EB",
         fill: false,
         tension: 0.3,
         borderWidth: 3,
@@ -63,7 +63,7 @@ const Charts = (p) => {
         borderDash: [5, 7],
       },
       {
-        type: "bar",
+        type: "line",
         //label: "Actual Data",
         data:
           p.title === "monthly"
@@ -72,7 +72,7 @@ const Charts = (p) => {
         backgroundColor:
           p.title === "monthly"
             ? [
-                "#D83F31",
+                "black",
                 "#219C90",
                 "#D83F31",
                 "#219C90",
@@ -86,8 +86,18 @@ const Charts = (p) => {
               ]
             : bgcolor,
         //hoverBackgroundColor: "#950101",
-        borderColor: "black",
-        borderWidth: 1,
+        pointHoverBorderColor: "#FAF0E6",
+        borderColor: "#F84018",
+        fill: false,
+        tension: 0.3,
+        borderWidth: 3,
+        borderCapStyle: "round",
+        pointHoverBackgroundColor: "rgb(88, 3, 3)",
+        pointHoverRadius: 8,
+        pointBorderColor: bgcolor,
+        pointBorderWidth: 8,
+        pointRadius: 3,
+       
       },
     ],
   };

@@ -47,11 +47,12 @@ export const colorDays = (data, dayC, date) => {
     date.getMonth(),
     dayC
   );
-  if (currentdate > today) {
+  if (currentdate > today ) {
     return {};
   }
   const index = data.findIndex((f) => f.day === dayC);
-  if (index === -1) {
+
+  if (index === -1 || (data[index].data[0].real ===0 && data[index].data[0].target===0) ) {
     return { backgroundColor: "#0720d9" };
   } else {
     if (data[index].data[0].real > data[index].data[0].target) {
