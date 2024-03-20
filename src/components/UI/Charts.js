@@ -102,7 +102,7 @@ const Charts = (p) => {
           color: "#f3f3f34f",
         },
         ticks: {
-          display: false,
+          display: p.home === undefined ? false : true,
           color: "white",
           fontWeight: "bold",
         },
@@ -122,7 +122,7 @@ const Charts = (p) => {
         display: true,
       },
     },
-    animation: {
+    animation: p.home === undefined && {
       onComplete: (animation) => {
         const { chart } = animation;
         const ctx = chart.ctx;
@@ -131,7 +131,9 @@ const Charts = (p) => {
           meta.data.forEach((element, index) => {
             const data =
               dataset.type === "line"
-                ? dataset.data[index]
+                ? p.warn !== "productivity"
+                  ? dataset.data[index]
+                  : `${dataset.data[index]}%`
                 : `${dataset.data[index]}%`;
             let xPos, yPos;
             if (dataset.type === "bar") {
