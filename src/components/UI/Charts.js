@@ -1,5 +1,5 @@
 import c from "./Charts.module.css";
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineElement,
@@ -11,24 +11,25 @@ import {
   BarElement,
 } from "chart.js";
 import React from "react";
+import { getParetp } from "../functions/utils";
 
 const Charts = (p) => {
+  const pareto = getParetp(p.data);
   const bgcolor = [];
   if (p.title === "daily") {
-    if(p.warn==="safety"){
+    if (p.warn === "safety") {
       p.data.map((m) =>
-      m.data[0].real >= m.data[0].target
-        ? bgcolor.push("rgb(88, 3, 3)")
-        : bgcolor.push("#005B41") 
-    );
-    }else{
+        m.data[0].real >= m.data[0].target
+          ? bgcolor.push("rgb(88, 3, 3)")
+          : bgcolor.push("#005B41")
+      );
+    } else {
       p.data.map((m) =>
-      m.data[0].real >= m.data[0].target
-        ? bgcolor.push("#005B41")
-        : bgcolor.push("rgb(88, 3, 3)")
-    );
+        m.data[0].real >= m.data[0].target
+          ? bgcolor.push("#005B41")
+          : bgcolor.push("rgb(88, 3, 3)")
+      );
     }
-    
   }
 
   const data = {
@@ -69,6 +70,20 @@ const Charts = (p) => {
         pointBorderColor: bgcolor,
         pointBorderWidth: 8,
         pointRadius: 3,
+      },
+    ],
+  };
+  const paretoChart = {
+    labels: pareto.map((m) => m.motif),
+    datasets: [
+      {
+        type: "bar",
+        label: "Pareto",
+        data: pareto.map((m) => m.percentage),
+        backgroundColor: "#4E7C88",
+        hoverBackgroundColor: "#929D96",
+        borderColor: "black",
+        borderWidth: 1,
       },
     ],
   };
@@ -122,11 +137,11 @@ const Charts = (p) => {
         chart.data.datasets.forEach((dataset, index) => {
           const meta = chart.getDatasetMeta(index);
           meta.data.forEach((element, index) => {
-            const data = dataset.data[index];
+            const data = dataset.type === "line"? dataset.data[index] : `${dataset.data[index]}%`;
             let xPos, yPos;
             if (dataset.type === "bar") {
               xPos = element.x;
-              yPos = element.y + 10;
+              yPos = element.y + 15;
             } else if (dataset.type === "line") {
               xPos = element.x;
               yPos = element.y - 10;
@@ -151,6 +166,7 @@ const Charts = (p) => {
     Legend,
     BarElement
   );
+
   return (
     <div className={c.chartHolder}>
       <div className={c.title}>
@@ -159,6 +175,14 @@ const Charts = (p) => {
         <span></span>
       </div>
       <Line data={data} options={options} />
+      {pareto.length>0 && <React.Fragment>
+        <div className={c.title}>
+          <span></span>
+          <h3> pareto </h3>
+          <span></span>
+        </div>
+        <Bar data={paretoChart} options={options} />
+      </React.Fragment>}
       <div className={c.title}>
         <span></span>
         <h3> Action plan </h3>
@@ -178,7 +202,7 @@ const Charts = (p) => {
         </thead>
         <tbody>
           {p.data.map(
-            (m,i) =>
+            (m, i) =>
               m.data[0].apm != null && (
                 <tr key={i}>
                   <td>{m.day}</td>

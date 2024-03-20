@@ -69,3 +69,16 @@ export const colorDays = (data, dayC, date, rev) => {
     }
   }
 };
+
+
+export const getParetp=data=>{
+
+  const rp=[];
+
+  data.forEach((e) => {
+    if(e.data[0].paretoModels!==null){
+      rp.push(...e.data[0].paretoModels);
+    }
+  });
+  return rp
+}
