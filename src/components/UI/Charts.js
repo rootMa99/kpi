@@ -17,7 +17,7 @@ const Charts = (p) => {
   const pareto = getParetp(p.data);
   const bgcolor = [];
   if (p.title === "daily") {
-    if (p.warn === "safety") {
+    if (p.warn === "safety" || p.warn === "quality" || p.warn === "inventory") {
       p.data.map((m) =>
         m.data[0].real >= m.data[0].target
           ? bgcolor.push("rgb(88, 3, 3)")

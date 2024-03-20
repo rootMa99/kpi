@@ -84,7 +84,7 @@ const AddData = (p) => {
     dueDate: "",
     status: "",
   });
-  const [pareto, setParetp] = useState([{ motif: "", percentage: 0 }]);
+  const [pareto, setParetp] = useState([{ motif: "", percentage: "" }]);
   const onSubmitHandeler = async (e) => {
     e.preventDefault();
     let body = data;
@@ -194,8 +194,8 @@ const AddData = (p) => {
               </h3>
               <React.Fragment>
                 {pareto.map((m, i) => (
-                  <div className={c["form-group"]}>
-                    <div className={c.inputC} key={i}>
+                  <div className={c["form-group"]} key={i}>
+                    <div className={c.inputC} >
                       <h3>motif:</h3>
                       <input
                         type="text"
@@ -215,6 +215,7 @@ const AddData = (p) => {
                         type="number"
                         placeholder="Enter Percentage"
                         step="0.01"
+                        max={100}
                         value={m.percentage}
                         onChange={(e) => {
                           const newPareto = [...pareto];
@@ -230,6 +231,7 @@ const AddData = (p) => {
                   onClick={(e) =>
                     setParetp((p) => [...p, { motif: "", percentage: 0 }])
                   }
+                  className={c.addP}
                 >
                   add pareto
                 </h4>
