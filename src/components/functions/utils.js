@@ -40,26 +40,32 @@ export const filterBydataName = (data, dataName) => {
   });
   return rd;
 };
-export const colorDays = (data, dayC, date) => {
-  const today= new Date();
-  const currentdate = new Date(
-    date.getFullYear(),
-    date.getMonth(),
-    dayC
-  );
-  if (currentdate > today ) {
+export const colorDays = (data, dayC, date, rev) => {
+  const today = new Date();
+  const currentdate = new Date(date.getFullYear(), date.getMonth(), dayC);
+  if (currentdate > today) {
     return {};
   }
   const index = data.findIndex((f) => f.day === dayC);
 
-  
-  if (index === -1 || (data[index].data[0].real ===0 && data[index].data[0].target===0) ) {
+  if (
+    index === -1 ||
+    (data[index].data[0].real === 0 && data[index].data[0].target === 0)
+  ) {
     return { backgroundColor: "#0720d9" };
   } else {
     if (data[index].data[0].real > data[index].data[0].target) {
-      return { backgroundColor: "#006B63" };
+      if (rev === undefined) {
+        return { backgroundColor: "#006B63" };
+      } else {
+        return { backgroundColor: "#CF3335" };
+      }
     } else {
-      return { backgroundColor: "#CF3335" };
+      if (rev !== undefined) {
+        return { backgroundColor: "#006B63" };
+      } else {
+        return { backgroundColor: "#CF3335" };
+      }
     }
   }
 };

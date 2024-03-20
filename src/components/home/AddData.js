@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import c from "./AddData.module.css";
 import Select from "react-select";
 import api from "../../service/api";
-const dataOp = [{ value: "action assigned", label: "action assigned" }];
+const dataOp = [
+  { value: "action assigned", label: "action assigned" },
+  { value: "action started", label: "action started" },
+  { value: "action complete", label: "action complete" },
+  { value: "rc fix confirmed", label: "rc fix confirmed" },
+];
 
 const customStyles = {
   control: (provided, state) => ({
@@ -64,7 +69,7 @@ const customStyles = {
 };
 
 const AddData = (p) => {
-  const [data, setData] = useState({ date: "", target: 0, real: 0 , apm:null});
+  const [data, setData] = useState({ date: "", target: 0, real: 0, apm: null });
   const [apm, setApm] = useState({
     issueDescription: "",
     causes: "",
@@ -75,10 +80,12 @@ const AddData = (p) => {
   });
   const onSubmitHandeler = async (e) => {
     e.preventDefault();
-    let body=data;
-    if((data.target > data.real && p.title !== "safety") ||
-    (data.target < data.real && p.title === "safety")){
-      body.apm=apm;
+    let body = data;
+    if (
+      (data.target > data.real && p.title !== "safety") ||
+      (data.target < data.real && p.title === "safety")
+    ) {
+      body.apm = apm;
     }
     let fullPath;
     switch (p.title) {
@@ -193,11 +200,16 @@ const AddData = (p) => {
                 </div>
                 <div className={c.inputC}>
                   <h3>Causes:</h3>
-                  <input type="text" placeholder="Enter Causes" required  onChange={(e) =>
-                    setApm((p) => {
-                      return { ...p, causes: e.target.value };
-                    })
-                  }/>
+                  <input
+                    type="text"
+                    placeholder="Enter Causes"
+                    required
+                    onChange={(e) =>
+                      setApm((p) => {
+                        return { ...p, causes: e.target.value };
+                      })
+                    }
+                  />
                 </div>
                 <div className={c.inputC}>
                   <h3>Contermeasures:</h3>
@@ -214,28 +226,40 @@ const AddData = (p) => {
                 </div>
                 <div className={c.inputC}>
                   <h3>Resp:</h3>
-                  <input type="text" placeholder="Enter Resp" required 
-                  onChange={(e) =>
-                    setApm((p) => {
-                      return { ...p, resp: e.target.value };
-                    })
-                  }/>
+                  <input
+                    type="text"
+                    placeholder="Enter Resp"
+                    required
+                    onChange={(e) =>
+                      setApm((p) => {
+                        return { ...p, resp: e.target.value };
+                      })
+                    }
+                  />
                 </div>
                 <div className={c.inputC}>
                   <h3>Due date:</h3>
-                  <input type="date" required onChange={(e) =>
-                    setApm((p) => {
-                      return { ...p, dueDate: e.target.value };
-                    })
-                  }/>
+                  <input
+                    type="date"
+                    required
+                    onChange={(e) =>
+                      setApm((p) => {
+                        return { ...p, dueDate: e.target.value };
+                      })
+                    }
+                  />
                 </div>
                 <div className={c.inputC}>
                   <h3>Status:</h3>
-                  <Select options={dataOp} styles={customStyles} onChange={(e) =>
-                    setApm((p) => {
-                      return { ...p, status: e.value };
-                    })
-                  }/>
+                  <Select
+                    options={dataOp}
+                    styles={customStyles}
+                    onChange={(e) =>
+                      setApm((p) => {
+                        return { ...p, status: e.value };
+                      })
+                    }
+                  />
                 </div>
               </div>
             </React.Fragment>
