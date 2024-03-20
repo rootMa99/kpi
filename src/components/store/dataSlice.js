@@ -5,6 +5,7 @@ const dataSlice = createSlice({
     name:"datas",
     initialState:{
         data:[],
+        kpiOwners:[],
         date:{start:"2024-03-01", end:"2024-03-31"}
     },
     reducers:{
@@ -13,6 +14,9 @@ const dataSlice = createSlice({
         },
         setTime(s, p){
             s.date=p.payload;
+        },
+        setKpiOwners(s,p){
+            s.kpiOwners=p.payload;
         }
     }
 }) 

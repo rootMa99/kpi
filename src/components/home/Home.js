@@ -11,12 +11,16 @@ import "react-datepicker/dist/react-datepicker.css";
 import c from "./Home.module.css";
 import React, { useRef, useState } from "react";
 import { getStartAndEndMonth } from "../functions/utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { dataActions } from "../store/dataSlice";
 import { useLocation } from "react-router";
 import AddData from "./AddData";
+import Profile from "../UI/Profile";
 
 const Home = (p) => {
+  const {kpiOwners}= useSelector(s=>s.data);
+
+  console.log(kpiOwners)
   const [show, setShow] = useState({ show: false, title: "" });
   const [selectedDate, setSelectedDate] = useState(new Date());
   const scrollRef = useRef(null);
@@ -24,6 +28,7 @@ const Home = (p) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
+  const safety=kpiOwners.findIndex((f) => f.kpiOwn === "safety");
   console.log(currentPath);
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -54,7 +59,7 @@ const Home = (p) => {
         />
       </div>
       <div className={c.head}>
-        <div className={c.ndiv} style={{ width:"28%" }}>
+        <div className={c.ndiv} style={{ width: "28%" }}>
           <h1>people</h1>
           <div className={c.wrapAl} onClick={(e) => clickHandler(e, "safety")}>
             <div className={c.title}>
@@ -75,7 +80,7 @@ const Home = (p) => {
             </div>
           </div>
         </div>
-        <div className={c.ndiv} style={{ width:"56%" }}>
+        <div className={c.ndiv} style={{ width: "56%" }}>
           <h1>performance</h1>
           <div className={c.wrapAl} onClick={(e) => clickHandler(e, "quality")}>
             <div className={c.title}>
@@ -123,7 +128,7 @@ const Home = (p) => {
             </div>
           </div>
         </div>
-        <div className={c.ndiv} style={{ width:"14%" }}>
+        <div className={c.ndiv} style={{ width: "14%" }}>
           <h1>improvement</h1>
           <div className={c.wrapAl} onClick={(e) => clickHandler(e, "kaizen")}>
             <div className={c.title}>
@@ -137,15 +142,44 @@ const Home = (p) => {
         </div>
       </div>
       <div ref={scrollRef} style={{ minHeight: "30rem" }}>
-        {!show.show && <div className={c.wrapm}>
-          <div><Details title="safety" home={true}/></div>
-          <div><Details title="skills" home={true}/></div>
-          <div><Details title="quality" home={true}/></div>
-          <div><Details title="delivery" home={true}/></div>
-          <div><Details title="inventory" home={true}/></div>
-          <div><Details title="productivity" home={true}/></div>
-          <div><Details title="kaizen" home={true}/></div>
-          </div>}
+        {!show.show && (
+          <div className={c.wrapm}>
+            <div className={c.config}>
+              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name={safety!==-1? kpiOwners[safety].name: ""} coName={safety!==-1? kpiOwners[safety].coName: ""}/>
+              <Details title="safety" home={true} />
+            </div>
+            <div className={c.config}>
+              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+
+              <Details title="skills" home={true} />
+            </div>
+            <div className={c.config}>
+              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+
+              <Details title="quality" home={true} />
+            </div>
+            <div className={c.config}>
+              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+
+              <Details title="delivery" home={true} />
+            </div>
+            <div className={c.config}>
+              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+
+              <Details title="inventory" home={true} />
+            </div>
+            <div className={c.config}>
+              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+
+              <Details title="productivity" home={true} />
+            </div>
+            <div className={c.config}>
+              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+
+              <Details title="kaizen" home={true} />
+            </div>
+          </div>
+        )}
         {show.show && currentPath !== "/admin" && (
           <Details title={show.title} />
         )}

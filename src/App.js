@@ -28,6 +28,21 @@ function App() {
     } catch (error) {
       console.error("Error:", error);
     }
+    try {
+      const response = await fetch(`${api}/owners`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      dispatch(
+        dataActions.setKpiOwners(data)
+      );
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }, [dispatch, date.start, date.end])
 
 useEffect(()=>{
