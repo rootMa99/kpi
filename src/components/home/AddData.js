@@ -69,7 +69,13 @@ const customStyles = {
 };
 
 const AddData = (p) => {
-  const [data, setData] = useState({ date: "", target: 0, real: 0, apm: null });
+  const [data, setData] = useState({
+    date: "",
+    target: 0,
+    real: 0,
+    apm: null,
+    paretoModels: null,
+  });
   const [apm, setApm] = useState({
     issueDescription: "",
     causes: "",
@@ -78,6 +84,7 @@ const AddData = (p) => {
     dueDate: "",
     status: "",
   });
+  const [pareto, setParetp] = useState([{ motif: "", percentage: 0 }]);
   const onSubmitHandeler = async (e) => {
     e.preventDefault();
     let body = data;
@@ -86,6 +93,7 @@ const AddData = (p) => {
       (data.target < data.real && p.title === "safety")
     ) {
       body.apm = apm;
+      body.paretoModels = pareto;
     }
     let fullPath;
     switch (p.title) {
@@ -130,7 +138,7 @@ const AddData = (p) => {
       console.error("Error:", error);
     }
   };
-  console.log(data.date);
+  console.log(pareto);
   return (
     <div className={c.container}>
       <div className={c["form-container"]}>
@@ -182,8 +190,51 @@ const AddData = (p) => {
             (data.target < data.real && p.title === "safety")) && (
             <React.Fragment>
               <h3 className={c.titleAP}>
-                waring: YOU MUST ENTER AN ACTION PLAN
+                waring: YOU MUST ENTER AN Pareto And ACTION PLAN
               </h3>
+              <React.Fragment>
+                {pareto.map((m, i) => (
+                  <div className={c["form-group"]}>
+                    <div className={c.inputC} key={i}>
+                      <h3>motif:</h3>
+                      <input
+                        type="text"
+                        placeholder="Enter Motif"
+                        value={m.motif}
+                        onChange={(e) => {
+                          const newPareto = [...pareto];
+                          newPareto[i].motif = e.target.value;
+                          setParetp(newPareto);
+                        }}
+                        required
+                      />
+                    </div>
+                    <div className={c.inputC}>
+                      <h3>percentage:</h3>
+                      <input
+                        type="number"
+                        placeholder="Enter Percentage"
+                        step="0.01"
+                        value={m.percentage}
+                        onChange={(e) => {
+                          const newPareto = [...pareto];
+                          newPareto[i].percentage = +e.target.value;
+                          setParetp(newPareto);
+                        }}
+                        required
+                      />
+                    </div>
+                  </div>
+                ))}
+                <h4
+                  onClick={(e) =>
+                    setParetp((p) => [...p, { motif: "", percentage: 0 }])
+                  }
+                >
+                  add pareto
+                </h4>
+              </React.Fragment>
+
               <div className={c["form-group"]}>
                 <div className={c.inputC}>
                   <h3>Issue description:</h3>

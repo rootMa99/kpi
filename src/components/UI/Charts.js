@@ -91,7 +91,7 @@ const Charts = (p) => {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      x: {
+      x: {    
         ticks: {
           color: "white",
           fontWeight: "bold",
@@ -109,14 +109,6 @@ const Charts = (p) => {
         y: {
           stacked: true,
         },
-        beginAtZero: true,
-        // suggestedMin:
-        //   p.type === "ab" || p.type === "hc" || p.type === "dt"
-        //     ? 0
-        //     : minBarValue !== 0
-        //     ? minBarValue - 10
-        //     : minBarValue,
-        // suggestedMax: maxBarValue + 20,
       },
     },
     plugins: {
