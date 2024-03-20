@@ -91,7 +91,7 @@ const Charts = (p) => {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      x: {    
+      x: {
         ticks: {
           color: "white",
           fontWeight: "bold",
@@ -129,7 +129,10 @@ const Charts = (p) => {
         chart.data.datasets.forEach((dataset, index) => {
           const meta = chart.getDatasetMeta(index);
           meta.data.forEach((element, index) => {
-            const data = dataset.type === "line"? dataset.data[index] : `${dataset.data[index]}%`;
+            const data =
+              dataset.type === "line"
+                ? dataset.data[index]
+                : `${dataset.data[index]}%`;
             let xPos, yPos;
             if (dataset.type === "bar") {
               xPos = element.x;
@@ -167,59 +170,65 @@ const Charts = (p) => {
         <span></span>
       </div>
       <Line data={data} options={options} />
-      {pareto.length>0 && <React.Fragment>
-        <div className={c.title}>
-          <span></span>
-          <h3> pareto </h3>
-          <span></span>
-        </div>
-        <Bar data={paretoChart} options={options} />
-      </React.Fragment>}
-      <div className={c.title}>
-        <span></span>
-        <h3> Action plan </h3>
-        <span></span>
-      </div>
-      <table className={c.table}>
-        <thead>
-          <tr>
-            <th>day</th>
-            <th>issue Description</th>
-            <th>causes</th>
-            <th width="30%">contermeasures</th>
-            <th>due Date</th>
-            <th>resp</th>
-            <th>status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {p.data.map(
-            (m, i) =>
-              m.data[0].apm != null && (
-                <tr key={i}>
-                  <td>{m.day}</td>
-                  <td>{m.data[0].apm.issueDescription}</td>
-                  <td>{m.data[0].apm.causes}</td>
-                  <td>{m.data[0].apm.contermeasures}</td>
-                  <td>{m.data[0].apm.dueDate}</td>
-                  <td>{m.data[0].apm.resp}</td>
-                  <td>{m.data[0].apm.status}</td>
-                </tr>
-              )
-          )}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tfoot>
-      </table>
+      {pareto.length > 0 && (
+        <React.Fragment>
+          <div className={c.title}>
+            <span></span>
+            <h3> pareto </h3>
+            <span></span>
+          </div>
+          <Bar data={paretoChart} options={options} />
+        </React.Fragment>
+      )}
+      {p.home === undefined && (
+        <React.Fragment>
+          <div className={c.title}>
+            <span></span>
+            <h3> Action plan </h3>
+            <span></span>
+          </div>
+          <table className={c.table}>
+            <thead>
+              <tr>
+                <th>day</th>
+                <th>issue Description</th>
+                <th>causes</th>
+                <th width="30%">contermeasures</th>
+                <th>due Date</th>
+                <th>resp</th>
+                <th>status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {p.data.map(
+                (m, i) =>
+                  m.data[0].apm != null && (
+                    <tr key={i}>
+                      <td>{m.day}</td>
+                      <td>{m.data[0].apm.issueDescription}</td>
+                      <td>{m.data[0].apm.causes}</td>
+                      <td>{m.data[0].apm.contermeasures}</td>
+                      <td>{m.data[0].apm.dueDate}</td>
+                      <td>{m.data[0].apm.resp}</td>
+                      <td>{m.data[0].apm.status}</td>
+                    </tr>
+                  )
+              )}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </React.Fragment>
+      )}
     </div>
   );
 };

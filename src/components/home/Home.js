@@ -38,7 +38,10 @@ const Home = (p) => {
   console.log(selectedDate);
   return (
     <React.Fragment>
-    <h1 className={c.topTitle}> <span></span> daily performance management </h1>
+      <h1 className={c.topTitle}>
+        {" "}
+        <span></span> daily performance management{" "}
+      </h1>
       <div className={c.datePicker}>
         <label>PICK A DATE</label>
         <DatePicker
@@ -51,7 +54,7 @@ const Home = (p) => {
         />
       </div>
       <div className={c.head}>
-        <div className={c.ndiv} style={{"border":"none"}}>
+        <div className={c.ndiv} style={{ width:"28%" }}>
           <h1>people</h1>
           <div className={c.wrapAl} onClick={(e) => clickHandler(e, "safety")}>
             <div className={c.title}>
@@ -72,8 +75,8 @@ const Home = (p) => {
             </div>
           </div>
         </div>
-        <div className={c.ndiv}>
-        <h1>performance</h1>
+        <div className={c.ndiv} style={{ width:"56%" }}>
+          <h1>performance</h1>
           <div className={c.wrapAl} onClick={(e) => clickHandler(e, "quality")}>
             <div className={c.title}>
               <div className={c.line}></div>
@@ -120,8 +123,8 @@ const Home = (p) => {
             </div>
           </div>
         </div>
-        <div className={c.ndiv}>
-        <h1>improvement</h1>
+        <div className={c.ndiv} style={{ width:"14%" }}>
+          <h1>improvement</h1>
           <div className={c.wrapAl} onClick={(e) => clickHandler(e, "kaizen")}>
             <div className={c.title}>
               <div className={c.line}></div>
@@ -134,8 +137,21 @@ const Home = (p) => {
         </div>
       </div>
       <div ref={scrollRef} style={{ minHeight: "30rem" }}>
-        {(show.show && currentPath!=="/admin") && <Details title={show.title} />}
-        {(show.show && currentPath==="/admin") && <AddData title={show.title} click={clickHandler} />}
+        {!show.show && <div className={c.wrapm}>
+          <div><Details title="safety" home={true}/></div>
+          <div><Details title="skills" home={true}/></div>
+          <div><Details title="quality" home={true}/></div>
+          <div><Details title="delivery" home={true}/></div>
+          <div><Details title="inventory" home={true}/></div>
+          <div><Details title="productivity" home={true}/></div>
+          <div><Details title="kaizen" home={true}/></div>
+          </div>}
+        {show.show && currentPath !== "/admin" && (
+          <Details title={show.title} />
+        )}
+        {show.show && currentPath === "/admin" && (
+          <AddData title={show.title} click={clickHandler} />
+        )}
       </div>
     </React.Fragment>
   );

@@ -2,7 +2,7 @@
   margin: auto 0;
   display: flex;
   margin-top: 10px;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: flex-start;
 }
 .wrapAl {
@@ -17,7 +17,7 @@
   display: flex;
   position: relative;
   padding-top: 3rem;
-
+  justify-content: space-around;
 }
 .ndiv h1 {
   position: absolute;
@@ -120,4 +120,13 @@
   height: 2rem;
   background-color: #f84018;
   border-radius: 50%;
+}
+.wrapm{
+  display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.wrapm div{
+  width: 14vw;
 }

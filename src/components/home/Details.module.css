@@ -48,3 +48,14 @@
   /* background-color: #383942; */
   margin-top: 2rem;
 }
+.tit{
+  color: aliceblue;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 400;
+}
+.tit::first-letter{
+  color: #f84018;
+  font-weight: 900;
+}
