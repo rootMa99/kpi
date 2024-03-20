@@ -14,7 +14,7 @@ const Details = (p) => {
         <h3>{p.title}</h3>
       </div>
       <div className={c.chartH} style={{"marginTop":0}}>
-        <Charts title="daily" data={filtredData} />
+        <Charts title="daily" warn={p.title} data={filtredData} />
       </div>
     </div>
   );

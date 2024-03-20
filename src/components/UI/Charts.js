@@ -15,39 +15,29 @@ import React from "react";
 const Charts = (p) => {
   const bgcolor = [];
   if (p.title === "daily") {
-    p.data.map((m) =>
+    if(p.warn==="safety"){
+      p.data.map((m) =>
+      m.data[0].real >= m.data[0].target
+        ? bgcolor.push("rgb(88, 3, 3)")
+        : bgcolor.push("#005B41") 
+    );
+    }else{
+      p.data.map((m) =>
       m.data[0].real >= m.data[0].target
         ? bgcolor.push("#005B41")
         : bgcolor.push("rgb(88, 3, 3)")
     );
+    }
+    
   }
 
   const data = {
-    labels:
-      p.title === "monthly"
-        ? [
-            "JAN",
-            "FEB",
-            "MAR",
-            "APR",
-            "MAY",
-            "JUN",
-            "JUL",
-            "AUG",
-            "SEP",
-            "OCT",
-            "NOV",
-            "DEC",
-          ]
-        : p.data.map((m) => m.day),
+    labels: p.data.map((m) => m.day),
     datasets: [
       {
         type: "line",
         label: "Target",
-        data:
-          p.title === "monthly"
-            ? [19, 6, 9, 10, 7, 8, 13, 11, 15, 2, 17]
-            : p.data.map((m) => m.data[0].target),
+        data: p.data.map((m) => m.data[0].target),
         backgroundColor: "#F84018",
         pointHoverBorderColor: "#FAF0E6",
         borderColor: "#3BC6EB",
@@ -65,26 +55,8 @@ const Charts = (p) => {
       {
         type: "line",
         label: "Actual",
-        data:
-          p.title === "monthly"
-            ? [17, 19, 6, 15, 2, 13, 7, 8, 9, 10, 11]
-            : p.data.map((m) => m.data[0].real),
-        backgroundColor:
-          p.title === "monthly"
-            ? [
-                "black",
-                "#219C90",
-                "#D83F31",
-                "#219C90",
-                "#D83F31",
-                "#219C90",
-                "#D83F31",
-                "#D83F31",
-                "#D83F31",
-                "#219C90",
-                "#D83F31",
-              ]
-            : bgcolor,
+        data: p.data.map((m) => m.data[0].real),
+        backgroundColor: bgcolor,
         //hoverBackgroundColor: "#950101",
         // pointHoverBorderColor: "#FAF0E6",
         borderColor: "#F84018",
@@ -157,7 +129,7 @@ const Charts = (p) => {
               yPos = element.y + 10;
             } else if (dataset.type === "line") {
               xPos = element.x;
-              yPos = element.y - 5;
+              yPos = element.y - 10;
             }
             ctx.save();
             ctx.textAlign = "center";
@@ -206,9 +178,9 @@ const Charts = (p) => {
         </thead>
         <tbody>
           {p.data.map(
-            (m) =>
+            (m,i) =>
               m.data[0].apm != null && (
-                <tr>
+                <tr key={i}>
                   <td>{m.day}</td>
                   <td>{m.data[0].apm.issueDescription}</td>
                   <td>{m.data[0].apm.causes}</td>
@@ -236,3 +208,13 @@ const Charts = (p) => {
   );
 };
 export default Charts;
+
+// <tr>
+// <td></td>
+// <td>we</td>
+// <td>always</td>
+// <td>do the right thing</td>
+// <td>the right</td>
+// <td>way</td>
+// <td></td>
+// </tr>
