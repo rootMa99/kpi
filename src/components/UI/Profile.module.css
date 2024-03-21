@@ -1,6 +1,6 @@
 .card {
     width: 13vw;
-    height: 15rem;
+    height: 11rem;
     background: rgb(39, 39, 39);
     border-radius: 12px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.123);
@@ -9,16 +9,19 @@
     align-items: center;
     justify-content: flex-start;
     transition-duration: .5s;
+    position: relative;
+    margin-top: 5rem;
   }
   
   .profileImage {
     background: linear-gradient(to right,rgb(54, 54, 54),rgb(32, 32, 32));
     margin-top: 20px;
-    width: 75%;
-    height: 45%;
-    border: 5px solid #f84018;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.329);
+    position: absolute;
+    top: -6rem;
   }
   
   .textContainer {
@@ -26,6 +29,8 @@
     padding-top: 10px;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: 0rem;
     /* gap: 10px; */
   }
   

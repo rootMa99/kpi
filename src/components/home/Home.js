@@ -18,9 +18,9 @@ import AddData from "./AddData";
 import Profile from "../UI/Profile";
 
 const Home = (p) => {
-  const {kpiOwners}= useSelector(s=>s.data);
+  const { kpiOwners } = useSelector((s) => s.data);
 
-  console.log(kpiOwners)
+  console.log(kpiOwners);
   const [show, setShow] = useState({ show: false, title: "" });
   const [selectedDate, setSelectedDate] = useState(new Date());
   const scrollRef = useRef(null);
@@ -28,7 +28,14 @@ const Home = (p) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const safety=kpiOwners.findIndex((f) => f.kpiOwn === "safety");
+  const safety = kpiOwners.findIndex((f) => f.kpiOwn === "safety");
+  const skills = kpiOwners.findIndex((f) => f.kpiOwn === "skills");
+  const productivity = kpiOwners.findIndex((f) => f.kpiOwn === "productivity");
+  const delivery = kpiOwners.findIndex((f) => f.kpiOwn === "delivery");
+  const quality = kpiOwners.findIndex((f) => f.kpiOwn === "quality");
+  const inventory = kpiOwners.findIndex((f) => f.kpiOwn === "inventory");
+  const kaizen = kpiOwners.findIndex((f) => f.kpiOwn === "kaizen");
+
   console.log(currentPath);
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -145,36 +152,64 @@ const Home = (p) => {
         {!show.show && (
           <div className={c.wrapm}>
             <div className={c.config}>
-              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name={safety!==-1? kpiOwners[safety].name: ""} coName={safety!==-1? kpiOwners[safety].coName: ""}/>
+              <Profile
+                urlI={safety !== -1 ? kpiOwners[safety].uri : ""}
+                name={safety !== -1 ? kpiOwners[safety].name : "N/A"}
+                coName={safety !== -1 ? kpiOwners[safety].coName : "N/A"}
+              />
               <Details title="safety" home={true} />
             </div>
             <div className={c.config}>
-              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+              <Profile
+                urlI={skills !== -1 ? kpiOwners[skills].uri : ""}
+                name={skills !== -1 ? kpiOwners[skills].name : "N/A"}
+                coName={skills !== -1 ? kpiOwners[skills].coName : "N/A"}
+              />
 
               <Details title="skills" home={true} />
             </div>
             <div className={c.config}>
-              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+              <Profile
+                urlI={quality !== -1 ? kpiOwners[quality].uri : ""}
+                name={quality !== -1 ? kpiOwners[quality].name : "N/A"}
+                coName={quality !== -1 ? kpiOwners[quality].coName : "N/A"}
+              />
 
               <Details title="quality" home={true} />
             </div>
             <div className={c.config}>
-              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+              <Profile
+                urlI={delivery !== -1 ? kpiOwners[delivery].uri : ""}
+                name={delivery !== -1 ? kpiOwners[delivery].name : "N/A"}
+                coName={delivery !== -1 ? kpiOwners[delivery].coName : "N/A"}
+              />
 
               <Details title="delivery" home={true} />
             </div>
             <div className={c.config}>
-              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+              <Profile
+                urlI={inventory !== -1 ? kpiOwners[inventory].uri : ""}
+                name={inventory !== -1 ? kpiOwners[inventory].name : "N/A"}
+                coName={inventory !== -1 ? kpiOwners[inventory].coName : "N/A"}
+              />
 
               <Details title="inventory" home={true} />
             </div>
             <div className={c.config}>
-              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+              <Profile
+                urlI={productivity !== -1 ? kpiOwners[productivity].uri : ""}
+                name={productivity !== -1 ? kpiOwners[productivity].name : "N/A"}
+                coName={productivity !== -1 ? kpiOwners[productivity].coName : "N/A"}
+              />
 
               <Details title="productivity" home={true} />
             </div>
             <div className={c.config}>
-              <Profile urlI={safety!==-1? kpiOwners[safety].uri: ""} name="n/a" coName="n/a" />
+              <Profile
+                urlI={kaizen !== -1 ? kpiOwners[kaizen].uri : ""}
+                name={kaizen !== -1 ? kpiOwners[kaizen].name : "N/A"}
+                coName={kaizen !== -1 ? kpiOwners[kaizen].coName : "N/A"}
+              />
 
               <Details title="kaizen" home={true} />
             </div>
