@@ -1,14 +1,18 @@
 import c from "./Profile.module.css";
 import edit from "../../assets/edit.png";
 import React, { useState } from "react";
-import BackDrop from "../UI/BackDrop"
+import BackDrop from "../UI/BackDrop";
 const Profile = (p) => {
   const [showForm, setShowForm] = useState(false);
-  const [data, setData]=useState({owner: p.name, coOwner: p.coName, file:p.urlI})
+  const [data, setData] = useState({
+    owner: p.name,
+    coOwner: p.coName,
+    file: p.urlI,
+  });
 
-  const close=e=>{
+  const close = (e) => {
     setShowForm(false);
-  }
+  };
   return (
     <React.Fragment>
       <div className={c.card}>
@@ -36,8 +40,9 @@ const Profile = (p) => {
 
       {showForm && (
         <React.Fragment>
-        <BackDrop click={close} />
+          <BackDrop click={close} />
           <div className={c["form-container"]}>
+          <h1>{p.kpiOwn}</h1>
             <form className={c.form}>
               <div className={c["form-group"]}>
                 <div className={c.inputC}>
@@ -59,9 +64,10 @@ const Profile = (p) => {
                   />
                 </div>
               </div>
+              <input type="file" accept="image/*" className={c.inputFile} />
               <button className={c["form-submit-btn"]} type="submit">
-            submit
-          </button>
+                submit
+              </button>
             </form>
           </div>
         </React.Fragment>
