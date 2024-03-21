@@ -1,23 +1,50 @@
 import c from "./Profile.module.css";
 import edit from "../../assets/edit.png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BackDrop from "../UI/BackDrop";
+import api from "../../service/api";
 const Profile = (p) => {
   const [showForm, setShowForm] = useState(false);
-  const [data, setData] = useState({
-    owner: p.name,
-    coOwner: p.coName,
-    file: p.urlI,
-  });
-
+  const [data, setData] = useState({});
+  useEffect(() => {
+    setData({
+      owner: p.name,
+      coOwner: p.coName,
+      file: p.urlI,
+    });
+  }, [p.name, p.coName, p.urlI]);
+  console.log(data, p.kpiOwn, p.name, p.coName, p.urlI);
   const close = (e) => {
     setShowForm(false);
   };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", data.file);
+    fetch(
+      `${api}/kpio?kpiOwn=${p.kpiOwn}&name=${data.owner}&coName=${data.coOwner}`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((response) => response.json())
+      .catch((error) => {
+        console.error("Error uploading file:", error);
+      });
+    close();
+  };
+
+  const fileChangeHandler = (e) => {
+    setData((p) => ({ ...p, file: e.target.files[0] }));
+  };
+
   return (
     <React.Fragment>
       <div className={c.card}>
         <img
-          src={data.file}
+          src={p.urlI}
           className={c.profileImage}
           alt="aptiv"
           draggable="false"
@@ -42,8 +69,8 @@ const Profile = (p) => {
         <React.Fragment>
           <BackDrop click={close} />
           <div className={c["form-container"]}>
-          <h1>{p.kpiOwn}</h1>
-            <form className={c.form}>
+            <h1>{p.kpiOwn}</h1>
+            <form className={c.form} onSubmit={submitHandler}>
               <div className={c["form-group"]}>
                 <div className={c.inputC}>
                   <h3>owner name:</h3>
@@ -51,6 +78,9 @@ const Profile = (p) => {
                     type="text"
                     placeholder="Enter owner name"
                     value={data.owner}
+                    onChange={(e) =>
+                      setData((p) => ({ ...p, owner: e.target.value }))
+                    }
                     required
                   />
                 </div>
@@ -60,11 +90,19 @@ const Profile = (p) => {
                     type="text"
                     placeholder="Enter co-owner name"
                     value={data.coOwner}
+                    onChange={(e) =>
+                      setData((p) => ({ ...p, coOwner: e.target.value }))
+                    }
                     required
                   />
                 </div>
               </div>
-              <input type="file" accept="image/*" className={c.inputFile} />
+              <input
+                type="file"
+                accept="image/*"
+                className={c.inputFile}
+                onChange={fileChangeHandler}
+              />
               <button className={c["form-submit-btn"]} type="submit">
                 submit
               </button>

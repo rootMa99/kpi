@@ -17,7 +17,6 @@ const NavBar = (p) => {
         <div className={c.links}>
           <ul>
            
-          
           </ul>
         </div>
 
