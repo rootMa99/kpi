@@ -156,6 +156,8 @@ const Home = (p) => {
                 urlI={safety !== -1 ? kpiOwners[safety].uri : ""}
                 name={safety !== -1 ? kpiOwners[safety].name : "N/A"}
                 coName={safety !== -1 ? kpiOwners[safety].coName : "N/A"}
+                kpiOwn="kpiOwn"
+                path={currentPath}
               />
               <Details title="safety" home={true} />
             </div>
@@ -164,6 +166,8 @@ const Home = (p) => {
                 urlI={skills !== -1 ? kpiOwners[skills].uri : ""}
                 name={skills !== -1 ? kpiOwners[skills].name : "N/A"}
                 coName={skills !== -1 ? kpiOwners[skills].coName : "N/A"}
+                kpiOwn="skills"
+                path={currentPath}
               />
 
               <Details title="skills" home={true} />
@@ -173,6 +177,8 @@ const Home = (p) => {
                 urlI={quality !== -1 ? kpiOwners[quality].uri : ""}
                 name={quality !== -1 ? kpiOwners[quality].name : "N/A"}
                 coName={quality !== -1 ? kpiOwners[quality].coName : "N/A"}
+                kpiOwn="quality"
+                path={currentPath}
               />
 
               <Details title="quality" home={true} />
@@ -182,6 +188,8 @@ const Home = (p) => {
                 urlI={delivery !== -1 ? kpiOwners[delivery].uri : ""}
                 name={delivery !== -1 ? kpiOwners[delivery].name : "N/A"}
                 coName={delivery !== -1 ? kpiOwners[delivery].coName : "N/A"}
+                kpiOwn="delivery"
+                path={currentPath}
               />
 
               <Details title="delivery" home={true} />
@@ -191,6 +199,8 @@ const Home = (p) => {
                 urlI={inventory !== -1 ? kpiOwners[inventory].uri : ""}
                 name={inventory !== -1 ? kpiOwners[inventory].name : "N/A"}
                 coName={inventory !== -1 ? kpiOwners[inventory].coName : "N/A"}
+                kpiOwn="inventory"
+                path={currentPath}
               />
 
               <Details title="inventory" home={true} />
@@ -200,6 +210,8 @@ const Home = (p) => {
                 urlI={productivity !== -1 ? kpiOwners[productivity].uri : ""}
                 name={productivity !== -1 ? kpiOwners[productivity].name : "N/A"}
                 coName={productivity !== -1 ? kpiOwners[productivity].coName : "N/A"}
+                kpiOwn="productivity"
+                path={currentPath}
               />
 
               <Details title="productivity" home={true} />
@@ -209,6 +221,8 @@ const Home = (p) => {
                 urlI={kaizen !== -1 ? kpiOwners[kaizen].uri : ""}
                 name={kaizen !== -1 ? kpiOwners[kaizen].name : "N/A"}
                 coName={kaizen !== -1 ? kpiOwners[kaizen].coName : "N/A"}
+                kpiOwn="kaizen"
+                path={currentPath}
               />
 
               <Details title="kaizen" home={true} />
