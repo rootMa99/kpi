@@ -29,6 +29,7 @@
   color: #fffefe;
   text-transform: capitalize;
   font-variant-caps: petite-caps;
+  padding: 0.5rem 0;
 }
 .ndiv h1::first-letter {
   color: #f84018;
