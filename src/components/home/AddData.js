@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import c from "./AddData.module.css";
 import Select from "react-select";
 import api from "../../service/api";
+import { getYesterday } from "../functions/utils";
 const dataOp = [
   { value: "action assigned", label: "action assigned" },
   { value: "action started", label: "action started" },
@@ -70,7 +71,7 @@ const customStyles = {
 
 const AddData = (p) => {
   const [data, setData] = useState({
-    date: "",
+    date: getYesterday(),
     target: 0,
     real: 0,
     apm: null,
@@ -149,11 +150,8 @@ const AddData = (p) => {
             <input
               type="date"
               required
-              onChange={(e) =>
-                setData((p) => {
-                  return { ...p, date: e.target.value };
-                })
-              }
+              value={data.date}
+              disabled
             />
           </div>
           <div className={c["form-group"]}>
