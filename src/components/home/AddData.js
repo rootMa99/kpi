@@ -195,7 +195,7 @@ const AddData = (p) => {
               <React.Fragment>
                 {pareto.map((m, i) => (
                   <div className={c["form-group"]} key={i}>
-                    <div className={c.inputC} >
+                    <div className={c.inputC}>
                       <h3>motif:</h3>
                       <input
                         type="text"
