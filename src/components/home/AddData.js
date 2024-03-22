@@ -186,8 +186,8 @@ const AddData = (p) => {
               />
             </div>
           </div>
-          {((data.target > data.real && p.title !== "safety") ||
-            (data.target < data.real && p.title === "safety")) && (
+          {((data.target > data.real && p.tit !== "rev") ||
+            (data.target < data.real && p.tit === "rev")) && (
             <React.Fragment>
               <h3 className={c.titleAP}>
                 waring: YOU MUST ENTER AN Pareto And ACTION PLAN

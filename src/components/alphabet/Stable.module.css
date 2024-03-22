@@ -27,3 +27,28 @@
     background-color: black;
   }
    */
+
+   .rotA{
+    position: absolute;
+    top: 48%;
+    right: 32%;
+    transform: rotate(-50deg);
+   }
+   .rotA tr td, .rotB tr td{
+    padding: 5px 0;
+   }
+   .rotB{
+    position: absolute;
+    top: 6%;
+    right: 34%;
+    transform: rotate(40deg);
+   }
+   .pad{
+    position: absolute;
+    top: 17%;
+    left: 6%;
+   }
+   .pad tr td{
+    padding: 12px 0;
+   }
+  

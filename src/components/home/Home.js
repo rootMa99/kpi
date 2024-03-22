@@ -16,12 +16,13 @@ import { dataActions } from "../store/dataSlice";
 import { useLocation } from "react-router";
 import AddData from "./AddData";
 import Profile from "../UI/Profile";
+import WorkId from "../WorkId";
 
 const Home = (p) => {
   const { kpiOwners } = useSelector((s) => s.data);
 
   console.log(kpiOwners);
-  const [show, setShow] = useState({ show: false, title: "" });
+  const [show, setShow] = useState({ show: false, title: "", rev:"" });
   const [selectedDate, setSelectedDate] = useState(new Date());
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
@@ -41,9 +42,9 @@ const Home = (p) => {
     setSelectedDate(date);
     dispatch(dataActions.setTime(getStartAndEndMonth(date)));
   };
-  const clickHandler = (e, t) => {
-    setShow({ show: false, title: "" });
-    setTimeout(() => setShow({ show: true, title: t }), 5);
+  const clickHandler = (e, t, r) => {
+    setShow({ show: false, title: "" , rev:""});
+    setTimeout(() => setShow({ show: true, title: t , r:r===undefined?"":r}), 5);
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -68,7 +69,7 @@ const Home = (p) => {
       <div className={c.head}>
         <div className={c.ndiv} style={{ width: "28%" }}>
           <h1>people</h1>
-          <div className={c.wrapAl} onClick={(e) => clickHandler(e, "safety")}>
+          <div className={c.wrapAl} onClick={(e) => clickHandler(e, "safety", "rev")}>
             <div className={c.title}>
               <div className={c.line}></div>
               <h3>Safety</h3>
@@ -89,7 +90,7 @@ const Home = (p) => {
         </div>
         <div className={c.ndiv} style={{ width: "56%" }}>
           <h1>performance</h1>
-          <div className={c.wrapAl} onClick={(e) => clickHandler(e, "quality")}>
+          <div className={c.wrapAl} onClick={(e) => clickHandler(e, "quality", "rev")}>
             <div className={c.title}>
               <div className={c.line}></div>
               <h3>quality</h3>
@@ -112,7 +113,7 @@ const Home = (p) => {
           </div>
           <div
             className={c.wrapAl}
-            onClick={(e) => clickHandler(e, "inventory")}
+            onClick={(e) => clickHandler(e, "inventory", "rev")}
           >
             <div className={c.title}>
               <div className={c.line}></div>
@@ -143,7 +144,7 @@ const Home = (p) => {
               <h3>kaizen</h3>
             </div>
             <div className={c.alphabetH}>
-              <Ktable date={selectedDate} />
+            <WorkId date={selectedDate}/>
             </div>
           </div>
         </div>
@@ -224,7 +225,6 @@ const Home = (p) => {
                 kpiOwn="kaizen"
                 path={currentPath}
               />
-
               <Details title="kaizen" home={true} />
             </div>
           </div>
@@ -240,3 +240,7 @@ const Home = (p) => {
   );
 };
 export default Home;
+
+
+
+// <Ktable date={selectedDate} />
