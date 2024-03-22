@@ -4,7 +4,7 @@ import Qletter from "../alphabet/Qletter";
 import Dtable from "../alphabet/Dtable";
 import Itable from "../alphabet/Itable";
 import Ptable from "../alphabet/Ptable";
-import Ktable from "../alphabet/Ktable";
+// import Ktable from "../alphabet/Ktable";
 import Details from "./Details";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
