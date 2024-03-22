@@ -15,15 +15,15 @@
   }
   
   .corner {
-    background-color: rgba(0, 0, 0, 0.082);
-    border: 1px solid  #F84018;
+    background-color: rgb(80, 80, 80);
+    /* border: 1px solid  #F84018; */
   }
   
-  .top {
+  /* .top {
     border-bottom: none;
   }
   
   .middle {
     background-color: black;
   }
-  
+   */

@@ -8,13 +8,12 @@ const Ptable = (p) => {
   return (
     <table className={c["letter-s"]}>
       <tr>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 1, p.date)}><span>1</span></td>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 1, p.date), borderRadius:"15px 0px 0px 0px"}}><span>1</span></td>
         <td className={c.corner} style={colorDays(filtredData, 2, p.date)}><span>2</span></td>
         <td className={c.corner} style={colorDays(filtredData, 3, p.date)}><span>3</span></td>
         <td className={c.corner} style={colorDays(filtredData, 4, p.date)}><span>4</span></td>
         <td className={c.corner} style={colorDays(filtredData, 5, p.date)}><span>5</span></td>
-        <td className={c.corner} style={colorDays(filtredData, 6, p.date)}><span>6</span></td>
-        <td className={c.top}></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 6, p.date), borderRadius:"0px 20px 0px 0px"}} colSpan={2}><span>6</span></td>
       </tr>
       <tr>
         <td className={c.top}></td>
@@ -43,7 +42,7 @@ const Ptable = (p) => {
         <td className={c.corner} style={colorDays(filtredData, 15, p.date)}><span>15</span></td>
         <td className={c.corner} style={colorDays(filtredData, 16, p.date)}><span>16</span></td>
         <td className={c.corner} style={colorDays(filtredData, 17, p.date)}><span>17</span></td>
-        <td className={c.corner} style={colorDays(filtredData, 18, p.date)}><span>18</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 18, p.date), borderRadius:"0px 0px 20px 0px"}} colSpan={2}><span>18</span></td>
         <td className={c.top}></td>
       </tr>
       <tr>

@@ -8,13 +8,13 @@ const Qletter = (p) => {
   return (
     <table className={c["letter-s"]}>
       <tr>
-        <td className={c.corner} style={colorDays(filtredData, 1, p.date, "rev")}><span>1</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 1, p.date, "rev"), borderRadius:"15px 0px 0px 0px"}}><span>1</span></td>
         <td className={c.corner} style={colorDays(filtredData, 2, p.date, "rev")}><span>2</span></td>
         <td className={c.corner} style={colorDays(filtredData, 3, p.date, "rev")}><span>3</span></td>
         <td className={c.corner} style={colorDays(filtredData, 4, p.date, "rev")}><span>4</span></td>
         <td className={c.corner} style={colorDays(filtredData, 5, p.date, "rev")}><span>5</span></td>
         <td className={c.corner} style={colorDays(filtredData, 6, p.date, "rev")}><span>6</span></td>
-        <td className={c.corner} style={colorDays(filtredData, 7, p.date, "rev")}><span>7</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 7, p.date, "rev"), borderRadius:"0px 15px 0px 0px"}}><span>7</span></td>
       </tr>
       <tr>
         <td className={c.corner} style={colorDays(filtredData, 8, p.date, "rev")}><span>8</span></td>
@@ -74,19 +74,19 @@ const Qletter = (p) => {
         <td className={c.corner} style={colorDays(filtredData, 20, p.date, "rev")}><span>20</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} style={colorDays(filtredData, 21, p.date, "rev")}><span>21</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 21, p.date, "rev"), borderRadius:"10px 10px 0px 0px"}}><span>21</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.corner} style={colorDays(filtredData, 22, p.date, "rev")}><span>22</span></td>
       </tr>
       <tr>
-        <td className={c.corner} style={colorDays(filtredData, 23, p.date, "rev")}><span>23</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 23, p.date, "rev"), borderRadius:"5px 0px 0px 15px"}}><span>23</span></td>
         <td className={c.corner} style={colorDays(filtredData, 24, p.date, "rev")}><span>24</span></td>
         <td className={c.corner} style={colorDays(filtredData, 25, p.date, "rev")}><span>25</span></td>
         <td className={c.corner} style={colorDays(filtredData, 26, p.date, "rev")}><span>26</span></td>
         <td className={c.corner} style={colorDays(filtredData, 27, p.date, "rev")}><span>27</span></td>
         <td className={c.corner} style={colorDays(filtredData, 28, p.date, "rev")}><span>28</span></td>
-        <td className={c.corner} style={colorDays(filtredData, 29, p.date, "rev")}><span>29</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 29, p.date, "rev"), borderRadius:"0px 0px 15px 0px"}}><span>29</span></td>
       </tr>
       <tr>
         <td className={c.top}></td>
@@ -101,7 +101,7 @@ const Qletter = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} style={colorDays(filtredData, 31, p.date, "rev")}><span>31</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 31, p.date, "rev"), borderRadius:"0px 0px 10px 10px"}}><span>31</span></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>

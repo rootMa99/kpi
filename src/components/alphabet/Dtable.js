@@ -9,7 +9,7 @@ const Dtable = (p) => {
   return (
     <table className={c["letter-s"]}>
       <tr>
-        <td className={c.corner} style={colorDays(filtredData, 1, p.date)}>
+        <td className={c.corner} style={{...colorDays(filtredData, 1, p.date), borderRadius:"15px 0px 0px 0px"}}>
           <span>1</span>
         </td>
         <td className={c.corner} style={colorDays(filtredData, 2, p.date)}>
@@ -19,8 +19,7 @@ const Dtable = (p) => {
         <td className={c.corner} style={colorDays(filtredData, 4, p.date)}><span>4</span></td>
         <td className={c.corner} style={colorDays(filtredData, 5, p.date)}><span>5</span></td>
         <td className={c.corner} style={colorDays(filtredData, 6, p.date)}><span>6</span></td>
-        <td className={c.corner} style={colorDays(filtredData, 7, p.date)}><span>7</span></td>
-        <td className={c.top}></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 7, p.date), borderRadius:"0px 20px 0px 0px"}} colSpan={2}><span>7</span></td>
       </tr>
       <tr>
         <td className={c.top}></td>
@@ -109,16 +108,16 @@ const Dtable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
+        <td className={c.top}></td>
         <td className={c.corner} style={colorDays(filtredData, 25, p.date)}><span>25</span></td>
       </tr>
       <tr>
-        <td className={c.corner} style={colorDays(filtredData, 26, p.date)}><span>26</span></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 26, p.date), borderRadius:"0px 0px 0px 15px"}} colSpan={2}><span>26</span></td>
         <td className={c.corner} style={colorDays(filtredData, 27, p.date)}><span>27</span></td>
         <td className={c.corner} style={colorDays(filtredData, 28, p.date)}><span>28</span></td>
         <td className={c.corner} style={colorDays(filtredData, 29, p.date)}><span>29</span></td>
         <td className={c.corner} style={colorDays(filtredData, 30, p.date)}><span>30</span></td>
-        <td className={c.corner} style={colorDays(filtredData, 31, p.date)}><span>31</span></td>
-        <td className={c.top}></td>
+        <td className={c.corner} style={{...colorDays(filtredData, 31, p.date), borderRadius:"0px 0px 20px 0px"}} colSpan={2}><span>31</span></td>
       </tr>
     </table>
   );

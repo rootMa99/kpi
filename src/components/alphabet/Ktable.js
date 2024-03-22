@@ -14,7 +14,7 @@ const Ktable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 2, p.date)}>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 2, p.date), borderRadius:"20px 0px 20px 0px"}}>
           <span>2</span>
         </td>
         <td className={c.top}></td>
@@ -30,7 +30,7 @@ const Ktable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 5, p.date)}>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 5, p.date), borderRadius:"20px 0px 20px 0px"}}>
           <span>5</span>
         </td>
         <td className={c.top}></td>
@@ -46,7 +46,7 @@ const Ktable = (p) => {
         </td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 8, p.date)}>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 8, p.date), borderRadius:"20px 0px 20px 0px"}}>
           <span>8</span>
         </td>
         <td className={c.top}></td>
@@ -60,7 +60,7 @@ const Ktable = (p) => {
           <span>10</span>
         </td>
         <td className={c.top}></td>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 11, p.date)}>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 11, p.date), borderRadius:"20px 0px 20px 0px"}}>
           <span>11</span>
         </td>
         <td className={c.top}></td>
@@ -74,10 +74,10 @@ const Ktable = (p) => {
         <td className={c.corner} style={colorDays(filtredData, 13, p.date)}>
           <span>13</span>
         </td>
-        <td className={c.corner} style={colorDays(filtredData, 14, p.date)}>
+        <td className={c.corner} style={{...colorDays(filtredData, 14, p.date), borderRadius:"20px 0px 0px 0px"}}>
           <span>14</span>
         </td>
-        <td className={c.corner} style={colorDays(filtredData, 15, p.date)}>
+        <td className={c.corner} style={{...colorDays(filtredData, 15, p.date), borderRadius:"0px 0px 20px 0px"}}>
           <span>15</span>
         </td>
         <td className={c.top}></td>
@@ -91,10 +91,10 @@ const Ktable = (p) => {
         <td className={c.corner} style={colorDays(filtredData, 17, p.date)}>
           <span>17</span>
         </td>
-        <td className={c.corner} style={colorDays(filtredData, 18, p.date)}>
+        <td className={c.corner} style={{...colorDays(filtredData, 18, p.date), borderRadius:"0px 0px 0px 20px"}}>
           <span>18</span>
         </td>
-        <td className={c.corner} style={colorDays(filtredData, 19, p.date)}>
+        <td className={c.corner} style={{...colorDays(filtredData, 19, p.date), borderRadius:"0px 20px 0px 0px"}}>
           <span>19</span>
         </td>
         <td className={c.top}></td>
@@ -110,10 +110,10 @@ const Ktable = (p) => {
           <span>21</span>
         </td>
         <td className={c.top}></td>
-        <td className={c.corner} style={colorDays(filtredData, 22, p.date)}>
+        <td className={c.corner} style={{...colorDays(filtredData, 22, p.date), borderRadius:"0px 0px 0px 20px"}}>
           <span>22</span>
         </td>
-        <td className={c.corner} style={colorDays(filtredData, 23, p.date)}>
+        <td className={c.corner} style={{...colorDays(filtredData, 23, p.date), borderRadius:"0px 20px 0px 0px"}}>
           <span>23</span>
         </td>
         <td className={c.top}></td>
@@ -129,7 +129,7 @@ const Ktable = (p) => {
         </td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 26, p.date)}>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 26, p.date), borderRadius:"0px 20px 0px 20px"}}>
           <span>26</span>
         </td>
         <td className={c.top}></td>
@@ -145,7 +145,7 @@ const Ktable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 29, p.date)}>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 29, p.date), borderRadius:"0px 20px 0px 20px"}}>
           <span>29</span>
         </td>
       </tr>
@@ -156,7 +156,7 @@ const Ktable = (p) => {
         <td className={c.top}></td>
         <td className={c.top}></td>
         <td className={c.top}></td>
-        <td className={c.corner} colSpan="2" style={colorDays(filtredData, 31, p.date)}>
+        <td className={c.corner} colSpan="2" style={{...colorDays(filtredData, 31, p.date), borderRadius:"0px 20px 0px 20px"}}>
           <span>31</span>
         </td>
         <td className={c.top}></td>
