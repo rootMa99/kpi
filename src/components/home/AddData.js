@@ -13,7 +13,7 @@ const dataOp = [
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    width: "100%",
+    width: "110%",
     padding: "4px 20px",
     fontWeight: "600",
     textTransform: "uppercase",
@@ -23,6 +23,7 @@ const customStyles = {
     outline: "none",
     border: "1px solid #ccc",
     boxShadow: "none",
+    backgroundColor:"#383942",
     "&:hover": {
       border: "1px solid #f84018",
       cursor: "pointer",
@@ -32,7 +33,7 @@ const customStyles = {
     width: "100%",
     padding: "0.5rem",
     color: state.isFocused ? "#f3f3f3" : "#474b4d",
-    backgroundColor: state.isFocused && "#474b4d",
+    backgroundColor: state.isFocused && "#383942",
     fontFamily: `Formular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
               "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
               "Segoe UI Symbol"`,
@@ -310,6 +311,7 @@ const AddData = (p) => {
                         return { ...p, status: e.value };
                       })
                     }
+                    menuPlacement="top"
                   />
                 </div>
               </div>

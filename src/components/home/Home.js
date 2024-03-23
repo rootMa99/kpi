@@ -21,10 +21,10 @@ import Profile from "../UI/Profile";
 const Home = (p) => {
   const { kpiOwners } = useSelector((s) => s.data);
 
-  console.log(kpiOwners);
   const [show, setShow] = useState({ show: false, title: "", rev: "" });
   const [selectedDate, setSelectedDate] = useState(new Date());
   const scrollRef = useRef(null);
+  const scrollRefAlpha = useRef(null);
   const dispatch = useDispatch();
   const location = useLocation();
   const currentPath = location.pathname;
@@ -37,7 +37,6 @@ const Home = (p) => {
   const inventory = kpiOwners.findIndex((f) => f.kpiOwn === "inventory");
   const kaizen = kpiOwners.findIndex((f) => f.kpiOwn === "kaizen");
 
-  console.log(currentPath);
   const handleDateChange = (date) => {
     setSelectedDate(date);
     dispatch(dataActions.setTime(getStartAndEndMonth(date)));
@@ -50,11 +49,15 @@ const Home = (p) => {
     );
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
+  const clickHandlerBack = () => {
+    setShow({ show: false, title: "", rev: "" });
+    scrollRefAlpha.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   console.log(selectedDate);
   return (
     <React.Fragment>
-    {show.show && <h2 className={c.backward}> <span>{"<"}</span> back </h2>}
+    {show.show && <h2 className={c.backward} onClick={clickHandlerBack} > <span>{"<"}</span> back </h2>}
       <h1 className={c.topTitle}>
         <span></span> daily performance management
       </h1>
@@ -69,7 +72,7 @@ const Home = (p) => {
           className={c["custom-datepicker"]}
         />
       </div>
-      <div className={c.head}>
+      <div className={c.head} ref={scrollRefAlpha}>
         <div className={c.ndiv} style={{ width: "28%" }}>
           <h1>people</h1>
           <div

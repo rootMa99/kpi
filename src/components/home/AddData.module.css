@@ -21,11 +21,11 @@
 }
 .form-container {
     width: 50%;
-    background-color: #fff;
+    background-color: #383942;
     padding: 32px 24px;
     font-size: 14px;
     font-family: inherit;
-    color: #212121;
+    color: #E5E1DA;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -66,13 +66,15 @@
     border-radius: 6px;
     font-family: inherit;
     border: 1px solid #ccc;
+    background-color: #383942;
+    color: #E5E1DA;
   }
   .inputD input{
     width: 94%;
     text-align: center;
   }
   .inputC input::placeholder {
-    opacity: 0.5;
+    opacity: 0.8;
   }
   
   .inputC input:focus,.inputC input:hover, .inputD input:focus, .inputD input:hover {
