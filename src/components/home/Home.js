@@ -4,7 +4,7 @@ import Qletter from "../alphabet/Qletter";
 import Dtable from "../alphabet/Dtable";
 import Itable from "../alphabet/Itable";
 import Ptable from "../alphabet/Ptable";
-// import Ktable from "../alphabet/Ktable";
+import Ktable from "../alphabet/Ktable";
 import Details from "./Details";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -16,13 +16,13 @@ import { dataActions } from "../store/dataSlice";
 import { useLocation } from "react-router";
 import AddData from "./AddData";
 import Profile from "../UI/Profile";
-import WorkId from "../WorkId";
+// import WorkId from "../WorkId";
 
 const Home = (p) => {
   const { kpiOwners } = useSelector((s) => s.data);
 
   console.log(kpiOwners);
-  const [show, setShow] = useState({ show: false, title: "", rev:"" });
+  const [show, setShow] = useState({ show: false, title: "", rev: "" });
   const [selectedDate, setSelectedDate] = useState(new Date());
   const scrollRef = useRef(null);
   const dispatch = useDispatch();
@@ -43,17 +43,20 @@ const Home = (p) => {
     dispatch(dataActions.setTime(getStartAndEndMonth(date)));
   };
   const clickHandler = (e, t, r) => {
-    setShow({ show: false, title: "" , rev:""});
-    setTimeout(() => setShow({ show: true, title: t , r:r===undefined?"":r}), 5);
+    setShow({ show: false, title: "", rev: "" });
+    setTimeout(
+      () => setShow({ show: true, title: t, r: r === undefined ? "" : r }),
+      5
+    );
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   console.log(selectedDate);
   return (
     <React.Fragment>
+    {show.show && <h2 className={c.backward}> <span>{"<"}</span> back </h2>}
       <h1 className={c.topTitle}>
-        {" "}
-        <span></span> daily performance management{" "}
+        <span></span> daily performance management
       </h1>
       <div className={c.datePicker}>
         <label>PICK A DATE</label>
@@ -69,7 +72,10 @@ const Home = (p) => {
       <div className={c.head}>
         <div className={c.ndiv} style={{ width: "28%" }}>
           <h1>people</h1>
-          <div className={c.wrapAl} onClick={(e) => clickHandler(e, "safety", "rev")}>
+          <div
+            className={c.wrapAl}
+            onClick={(e) => clickHandler(e, "safety", "rev")}
+          >
             <div className={c.title}>
               <div className={c.line}></div>
               <h3>Safety</h3>
@@ -90,7 +96,10 @@ const Home = (p) => {
         </div>
         <div className={c.ndiv} style={{ width: "56%" }}>
           <h1>performance</h1>
-          <div className={c.wrapAl} onClick={(e) => clickHandler(e, "quality", "rev")}>
+          <div
+            className={c.wrapAl}
+            onClick={(e) => clickHandler(e, "quality", "rev")}
+          >
             <div className={c.title}>
               <div className={c.line}></div>
               <h3>quality</h3>
@@ -144,7 +153,7 @@ const Home = (p) => {
               <h3>kaizen</h3>
             </div>
             <div className={c.alphabetH}>
-            <WorkId date={selectedDate}/>
+              <Ktable date={selectedDate} />
             </div>
           </div>
         </div>
@@ -209,8 +218,12 @@ const Home = (p) => {
             <div className={c.config}>
               <Profile
                 urlI={productivity !== -1 ? kpiOwners[productivity].uri : ""}
-                name={productivity !== -1 ? kpiOwners[productivity].name : "N/A"}
-                coName={productivity !== -1 ? kpiOwners[productivity].coName : "N/A"}
+                name={
+                  productivity !== -1 ? kpiOwners[productivity].name : "N/A"
+                }
+                coName={
+                  productivity !== -1 ? kpiOwners[productivity].coName : "N/A"
+                }
                 kpiOwn="productivity"
                 path={currentPath}
               />
@@ -241,6 +254,4 @@ const Home = (p) => {
 };
 export default Home;
 
-
-
-// <Ktable date={selectedDate} />
+// <WorkId date={selectedDate}/>

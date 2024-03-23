@@ -133,3 +133,24 @@
 .config {
   width: 14vw;
 }
+.backward{
+  color: #fffefe;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0;
+  opacity: 0.5;
+  width: fit-content;
+  position: absolute;
+  top: 2px;
+  right: 21rem;
+  z-index: 1111;
+}
+.backward span{
+  color: #f84018;
+  font-size: xx-large;
+  font-weight: 900;
+}
+.backward:hover{
+  opacity: 1;
+  transform: scale(1.1);
+}
