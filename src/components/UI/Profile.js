@@ -13,7 +13,6 @@ const Profile = (p) => {
       file: p.urlI,
     });
   }, [p.name, p.coName, p.urlI]);
-  console.log(data, p.kpiOwn, p.name, p.coName, p.urlI);
   const close = (e) => {
     setShowForm(false);
   };

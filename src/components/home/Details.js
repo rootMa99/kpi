@@ -6,7 +6,6 @@ import { filterBydataName } from "../functions/utils";
 const Details = (p) => {
   const { data } = useSelector((s) => s.data);
   const filtredData = filterBydataName(data, p.title);
-  console.log(data, filtredData, p.title);
   return (
     <div className={c.container}>
       {p.home !== undefined ? (

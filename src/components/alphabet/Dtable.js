@@ -5,7 +5,6 @@ import { colorDays, filterBydataName } from "../functions/utils";
 const Dtable = (p) => {
   const {data}= useSelector(s=>s.data);
   const filtredData= filterBydataName(data, "delivery");
-  console.log(filtredData,"data")
   return (
     <table className={c["letter-s"]}>
       <tr>

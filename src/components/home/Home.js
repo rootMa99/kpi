@@ -44,7 +44,7 @@ const Home = (p) => {
   const clickHandler = (e, t, r) => {
     setShow({ show: false, title: "", rev: "" });
     setTimeout(
-      () => setShow({ show: true, title: t, r: r === undefined ? "" : r }),
+      () => setShow({ show: true, title: t, rev: r === undefined ? "" : r }),
       5
     );
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
@@ -54,7 +54,6 @@ const Home = (p) => {
     scrollRefAlpha.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  console.log(selectedDate);
   return (
     <React.Fragment>
     {show.show && <h2 className={c.backward} onClick={clickHandlerBack} > <span>{"<"}</span> back </h2>}
@@ -249,7 +248,7 @@ const Home = (p) => {
           <Details title={show.title} />
         )}
         {show.show && currentPath === "/admin" && (
-          <AddData title={show.title} click={clickHandler} />
+          <AddData title={show.title} tit={show.rev} click={clickHandler} />
         )}
       </div>
     </React.Fragment>

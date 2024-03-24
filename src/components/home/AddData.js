@@ -140,7 +140,6 @@ const AddData = (p) => {
       console.error("Error:", error);
     }
   };
-  console.log(pareto);
   return (
     <div className={c.container}>
       <div className={c["form-container"]}>
