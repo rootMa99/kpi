@@ -5,7 +5,7 @@ import Home from "./components/home/Home";
 import { useCallback, useEffect } from "react";
 import api from "./service/api";
 import { dataActions } from "./components/store/dataSlice";
-import { filterBydataName, getOnlyDay } from "./components/functions/utils";
+import { getOnlyDay } from "./components/functions/utils";
 
 function App() {
   const {date}= useSelector(s=>s.data);
