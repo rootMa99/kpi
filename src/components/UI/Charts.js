@@ -54,7 +54,7 @@ const Charts = (p) => {
         borderDash: [5, 7],
       },
       {
-        type: "line",
+        type: "bar",
         label: "Actual",
         data: p.data.map((m) => m.data[0].real),
         backgroundColor: bgcolor,
@@ -63,7 +63,7 @@ const Charts = (p) => {
         borderColor: "#F84018",
         fill: false,
         tension: 0.3,
-        borderWidth: 3,
+        borderWidth: 1,
         borderCapStyle: "round",
         // pointHoverBackgroundColor: "rgb(88, 3, 3)",
         pointHoverRadius: 8,

@@ -36,7 +36,7 @@ const Profile = (p) => {
   };
 
   const fileChangeHandler = (e) => {
-    setData((p) => ({ ...p, file: e.target.files[0] }));
+    setData((p) => ({ ...p, file: e.target.files[0]}));
   };
 
   return (
