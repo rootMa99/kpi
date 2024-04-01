@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getStartAndEndMonth } from "../functions/utils";
+import { getCurrentMonthDates, getStartAndEndMonth } from "../functions/utils";
 
 
 const dataSlice = createSlice({
@@ -7,7 +7,7 @@ const dataSlice = createSlice({
     initialState:{
         data:[],
         kpiOwners:[],
-        date:getStartAndEndMonth(new Date())
+        date:getCurrentMonthDates()
     },
     reducers:{
         addData(s,p){

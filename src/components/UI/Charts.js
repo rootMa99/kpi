@@ -11,7 +11,7 @@ import {
   BarElement,
 } from "chart.js";
 import React from "react";
-import { getParetp } from "../functions/utils";
+import { formatDate, getParetp } from "../functions/utils";
 
 const Charts = (p) => {
   const pareto = getParetp(p.data).sort((a, b) => {
@@ -208,7 +208,14 @@ const Charts = (p) => {
               {p.data.map(
                 (m, i) =>
                   m.data[0].apm != null && (
-                    <tr key={i}>
+                    <tr
+                      key={i}
+                      style={
+                        m.data[0].apm.dueDate < formatDate(new Date())
+                          ? { backgroundColor: "red" }
+                          : {}
+                      }
+                    >
                       <td>{m.day}</td>
                       <td>{m.data[0].apm.issueDescription}</td>
                       <td>{m.data[0].apm.causes}</td>

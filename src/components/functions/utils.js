@@ -70,24 +70,53 @@ export const colorDays = (data, dayC, date, rev) => {
   }
 };
 
-
-export const getParetp=data=>{
-
-  const rp=[];
+export const getParetp = (data) => {
+  const rp = [];
 
   data.forEach((e) => {
-    if(e.data[0].paretoModels!==null){
+    if (e.data[0].paretoModels !== null) {
       rp.push(...e.data[0].paretoModels);
     }
   });
-  return rp
-}
+  return rp;
+};
 
-export const getYesterday=()=>{
+export const getYesterday = () => {
   const today = new Date();
-  const yesterday = new Date(today.getTime() - (24 * 60 * 60 * 1000));
+  const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
   const year = yesterday.getFullYear();
-  const month = String(yesterday.getMonth() + 1).padStart(2, '0');
-  const day = String(yesterday.getDate()).padStart(2, '0');
+  const month = String(yesterday.getMonth() + 1).padStart(2, "0");
+  const day = String(yesterday.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
-}
+};
+
+export const getCurrentMonthDates = () => {
+  const currentDate = new Date();
+
+  const firstDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  );
+
+  const lastDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  );
+
+  const formattedFirstDay = formatDate(firstDayOfMonth);
+  const formattedLastDay = formatDate(lastDayOfMonth);
+
+  return {
+    start: formattedFirstDay,
+    end: formattedLastDay,
+  };
+};
+
+export const formatDate = (date) => {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
