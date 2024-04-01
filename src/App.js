@@ -10,7 +10,7 @@ import { getOnlyDay } from "./components/functions/utils";
 function App() {
   const {date}= useSelector(s=>s.data);
   const dispatch=useDispatch();
-
+  console.log(date)
   const callback=useCallback(async ()=>{
     try {
       const response = await fetch(`${api}/dataBetween?startDate=${date.start}&endDate=${date.end}`, {

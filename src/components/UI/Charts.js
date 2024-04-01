@@ -14,7 +14,10 @@ import React from "react";
 import { getParetp } from "../functions/utils";
 
 const Charts = (p) => {
-  const pareto = getParetp(p.data);
+  const pareto = getParetp(p.data).sort((a, b) => {
+    return b.percentage - a.percentage;
+  });
+  console.log(pareto);
   const bgcolor = [];
   if (p.title === "daily") {
     if (p.warn === "safety" || p.warn === "quality" || p.warn === "inventory") {
