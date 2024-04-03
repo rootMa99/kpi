@@ -27,9 +27,7 @@ const Profile = (p) => {
         method: "POST",
         body: formData,
       }
-    )
-      .then((response) => response.json())
-      .catch((error) => {
+    ).catch((error) => {
         console.error("Error uploading file:", error);
       });
     close();
