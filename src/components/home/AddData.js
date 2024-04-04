@@ -151,7 +151,10 @@ const AddData = (p) => {
               type="date"
               required
               value={data.date}
-              disabled
+              onChange={(e) =>
+                setData((p) => {
+                  return { ...p, date: e.target.value };
+                })}
             />
           </div>
           <div className={c["form-group"]}>

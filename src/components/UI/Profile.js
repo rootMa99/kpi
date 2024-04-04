@@ -21,6 +21,7 @@ const Profile = (p) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", data.file);
+    
     fetch(
       `${api}/kpio?kpiOwn=${p.kpiOwn}&name=${data.owner}&coName=${data.coOwner}`,
       {
