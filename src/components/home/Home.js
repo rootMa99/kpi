@@ -168,7 +168,7 @@ const Home = (p) => {
                 urlI={safety !== -1 ? kpiOwners[safety].uri : ""}
                 name={safety !== -1 ? kpiOwners[safety].name : "N/A"}
                 coName={safety !== -1 ? kpiOwners[safety].coName : "N/A"}
-                kpiOwn="kpiOwn"
+                kpiOwn="safety"
                 path={currentPath}
               />
               <Details title="safety" home={true} />
