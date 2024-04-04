@@ -19,23 +19,35 @@ const Profile = (p) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", data.file);
-    
-    fetch(
-      `${api}/kpio?kpiOwn=${p.kpiOwn}&name=${data.owner}&coName=${data.coOwner}`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).catch((error) => {
+
+    if (typeof data.file === "object") {
+      const formData = new FormData();
+      formData.append("file", data.file);
+      fetch(
+        `${api}/kpio?kpiOwn=${p.kpiOwn}&name=${data.owner}&coName=${data.coOwner}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      ).catch((error) => {
         console.error("Error uploading file:", error);
       });
+    } else {
+      fetch(
+        `${api}/kpio/owner?kpiOwn=${p.kpiOwn}&name=${data.owner}&coName=${data.coOwner}`,
+        {
+          method: "POST",
+        }
+      ).catch((error) => {
+        console.error("Error uploading file:", error);
+      });
+    }
+
     close();
   };
 
   const fileChangeHandler = (e) => {
-    setData((p) => ({ ...p, file: e.target.files[0]}));
+    setData((p) => ({ ...p, file: e.target.files[0] }));
   };
 
   return (
