@@ -16,11 +16,9 @@ import { dataActions } from "../store/dataSlice";
 import { useLocation } from "react-router";
 import AddData from "./AddData";
 import Profile from "../UI/Profile";
-// import WorkId from "../WorkId";
 
 const Home = (p) => {
   const { kpiOwners } = useSelector((s) => s.data);
-
   const [show, setShow] = useState({ show: false, title: "", rev: "" });
   const [selectedDate, setSelectedDate] = useState(new Date());
   const scrollRef = useRef(null);
@@ -56,7 +54,11 @@ const Home = (p) => {
 
   return (
     <React.Fragment>
-    {show.show && <h2 className={c.backward} onClick={clickHandlerBack} > <span>{"<"}</span> back </h2>}
+      {show.show && (
+        <h2 className={c.backward} onClick={clickHandlerBack}>
+          <span>{"<"}</span> back
+        </h2>
+      )}
       <h1 className={c.topTitle}>
         <span></span> daily performance management
       </h1>
@@ -256,4 +258,3 @@ const Home = (p) => {
 };
 export default Home;
 
-// <WorkId date={selectedDate}/>
