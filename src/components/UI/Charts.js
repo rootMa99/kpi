@@ -226,6 +226,7 @@ const Charts = (p) => {
                     </tr>
                   )
               )}
+             
             </tbody>
             <tfoot>
               <tr>

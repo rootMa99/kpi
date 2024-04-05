@@ -207,7 +207,7 @@ const AddData = (p) => {
                           newPareto[i].motif = e.target.value;
                           setParetp(newPareto);
                         }}
-                        required
+                        
                       />
                     </div>
                     <div className={c.inputC}>
@@ -223,7 +223,7 @@ const AddData = (p) => {
                           newPareto[i].percentage = +e.target.value;
                           setParetp(newPareto);
                         }}
-                        required
+                        
                       />
                     </div>
                   </div>
@@ -249,7 +249,7 @@ const AddData = (p) => {
                         return { ...p, issueDescription: e.target.value };
                       })
                     }
-                    required
+                   
                   />
                 </div>
                 <div className={c.inputC}>
@@ -257,7 +257,7 @@ const AddData = (p) => {
                   <input
                     type="text"
                     placeholder="Enter Causes"
-                    required
+                    
                     onChange={(e) =>
                       setApm((p) => {
                         return { ...p, causes: e.target.value };
@@ -270,7 +270,7 @@ const AddData = (p) => {
                   <input
                     type="text"
                     placeholder="Enter Contermeasures"
-                    required
+                    
                     onChange={(e) =>
                       setApm((p) => {
                         return { ...p, contermeasures: e.target.value };
@@ -283,7 +283,7 @@ const AddData = (p) => {
                   <input
                     type="text"
                     placeholder="Enter Resp"
-                    required
+                    
                     onChange={(e) =>
                       setApm((p) => {
                         return { ...p, resp: e.target.value };
