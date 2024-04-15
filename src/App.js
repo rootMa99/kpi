@@ -21,6 +21,7 @@ function App() {
       });
 
       const data = await response.json();
+      console.log(data)
       dispatch(
         dataActions.addData(getOnlyDay(data))
       );
@@ -36,6 +37,7 @@ function App() {
       });
 
       const data = await response.json();
+    
       dispatch(
         dataActions.setKpiOwners(data)
       );
